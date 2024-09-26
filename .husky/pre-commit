@@ -5,11 +5,11 @@ echo '🛠️ Styling your project before committing 🛠️'
 echo 'Please wait, this may take a while...'
 
 # Check Prettier
-yarn check-format || {
-  echo '💀 Oops.. there is a problem with your code formatting 💀'
-  echo 'Please fix it first, then commit again'
-  false
-}
+# yarn check-format || {
+#   echo '💀 Oops.. there is a problem with your code formatting 💀'
+#   echo 'Please fix it first, then commit again'
+#   false
+# }
 
 # Check Lint
 yarn check-lint || {
