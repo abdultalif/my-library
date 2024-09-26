@@ -1,0 +1,35 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo '🛠️ Styling your project before committing 🛠️'
+echo 'Please wait, this may take a while...'
+
+# Check Prettier
+yarn check-format || {
+  echo '💀 Oops.. there is a problem with your code formatting 💀'
+  echo 'Please fix it first, then commit again'
+  false
+}
+
+# Check Lint
+yarn check-lint || {
+  echo '💀 Oops.. there is a problem with your code linting 💀'
+  echo 'Please fix it first, then commit again'
+  false
+}
+
+# Check Types
+yarn check-types || {
+  echo '💀 Oops.. there is a problem with the types in your code 💀'
+  echo 'Please fix it first, then commit again'
+  false
+}
+
+# Build
+yarn build || {
+  echo '💀 Oops.. there is a problem when building your project 💀'
+  echo 'Please fix it first, then commit again'
+  false
+}
+
+echo '✅ No errors found: you can commit your code now 🚀🚀🤝'

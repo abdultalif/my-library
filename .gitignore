@@ -1,0 +1,13 @@
+# Environment
+.env
+
+# Package
+/node_modules
+
+# Testing Jest
+/coverage
+
+# Production
+/build
+/dist
+
