@@ -10,3 +10,4 @@ build
 public
 node_modules
 vercel.json
+logs
