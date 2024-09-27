@@ -1,0 +1,2054 @@
+ [LOGGER] 2024-09-27 02:42:15.191 AM ERROR : ZodError: [
+  {
+    "code": "too_small",
+    "minimum": 1,
+    "type": "string",
+    "inclusive": true,
+    "exact": false,
+    "message": "Email Wajib Diisi",
+    "path": [
+      "email"
+    ]
+  },
+  {
+    "validation": "email",
+    "code": "invalid_string",
+    "message": "Email tidak valid",
+    "path": [
+      "email"
+    ]
+  },
+  {
+    "code": "too_small",
+    "minimum": 8,
+    "type": "string",
+    "inclusive": true,
+    "exact": false,
+    "message": "Password minimal 8 karakter",
+    "path": [
+      "password"
+    ]
+  },
+  {
+    "code": "too_small",
+    "minimum": 1,
+    "type": "string",
+    "inclusive": true,
+    "exact": false,
+    "message": "Password harus diisi",
+    "path": [
+      "password"
+    ]
+  },
+  {
+    "validation": "regex",
+    "code": "invalid_string",
+    "message": "Password harus memiliki minimal 1 huruf besar",
+    "path": [
+      "password"
+    ]
+  },
+  {
+    "validation": "regex",
+    "code": "invalid_string",
+    "message": "Password harus memiliki minimal 1 huruf kecil",
+    "path": [
+      "password"
+    ]
+  },
+  {
+    "validation": "regex",
+    "code": "invalid_string",
+    "message": "Password harus memiliki minimal 1 angka",
+    "path": [
+      "password"
+    ]
+  },
+  {
+    "validation": "regex",
+    "code": "invalid_string",
+    "message": "Password harus menerapkan setidaknya 1 simbol",
+    "path": [
+      "password"
+    ]
+  }
+]
+    at Object.get error [as error] (D:\wa\Backend-Test-Case\node_modules\zod\lib\types.js:55:31)
+    at ZodObject.parse (D:\wa\Backend-Test-Case\node_modules\zod\lib\types.js:160:22)
+    at D:\wa\Backend-Test-Case\src\controller\Auth-Controller.ts:11:48
+    at Generator.next (<anonymous>)
+    at D:\wa\Backend-Test-Case\src\controller\Auth-Controller.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (D:\wa\Backend-Test-Case\src\controller\Auth-Controller.ts:4:12)
+    at login (D:\wa\Backend-Test-Case\src\controller\Auth-Controller.ts:9:73)
+    at Layer.handle [as handle_request] (D:\wa\Backend-Test-Case\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\wa\Backend-Test-Case\node_modules\express\lib\router\route.js:149:13)
+ [LOGGER] 2024-09-27 02:42:15.194 AM ERROR : Error in login function: [
+  {
+    "code": "too_small",
+    "minimum": 1,
+    "type": "string",
+    "inclusive": true,
+    "exact": false,
+    "message": "Email Wajib Diisi",
+    "path": [
+      "email"
+    ]
+  },
+  {
+    "validation": "email",
+    "code": "invalid_string",
+    "message": "Email tidak valid",
+    "path": [
+      "email"
+    ]
+  },
+  {
+    "code": "too_small",
+    "minimum": 8,
+    "type": "string",
+    "inclusive": true,
+    "exact": false,
+    "message": "Password minimal 8 karakter",
+    "path": [
+      "password"
+    ]
+  },
+  {
+    "code": "too_small",
+    "minimum": 1,
+    "type": "string",
+    "inclusive": true,
+    "exact": false,
+    "message": "Password harus diisi",
+    "path": [
+      "password"
+    ]
+  },
+  {
+    "validation": "regex",
+    "code": "invalid_string",
+    "message": "Password harus memiliki minimal 1 huruf besar",
+    "path": [
+      "password"
+    ]
+  },
+  {
+    "validation": "regex",
+    "code": "invalid_string",
+    "message": "Password harus memiliki minimal 1 huruf kecil",
+    "path": [
+      "password"
+    ]
+  },
+  {
+    "validation": "regex",
+    "code": "invalid_string",
+    "message": "Password harus memiliki minimal 1 angka",
+    "path": [
+      "password"
+    ]
+  },
+  {
+    "validation": "regex",
+    "code": "invalid_string",
+    "message": "Password harus menerapkan setidaknya 1 simbol",
+    "path": [
+      "password"
+    ]
+  }
+]
+ [LOGGER] 2024-09-27 02:42:15.201 AM ERROR : uncaughtException: {"email":"Email Wajib Diisi","password":"Password minimal 8 karakter"}
+Error: {"email":"Email Wajib Diisi","password":"Password minimal 8 karakter"}
+    at D:\wa\Backend-Test-Case\src\controller\Auth-Controller.ts:43:13
+    at Generator.next (<anonymous>)
+    at D:\wa\Backend-Test-Case\src\controller\Auth-Controller.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (D:\wa\Backend-Test-Case\src\controller\Auth-Controller.ts:4:12)
+    at login (D:\wa\Backend-Test-Case\src\controller\Auth-Controller.ts:9:73)
+    at Layer.handle [as handle_request] (D:\wa\Backend-Test-Case\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\wa\Backend-Test-Case\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (D:\wa\Backend-Test-Case\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (D:\wa\Backend-Test-Case\node_modules\express\lib\router\layer.js:95:5)
+ [LOGGER] 2024-09-27 02:42:38.761 AM ERROR : ZodError: [
+  {
+    "code": "too_small",
+    "minimum": 1,
+    "type": "string",
+    "inclusive": true,
+    "exact": false,
+    "message": "Email Wajib Diisi",
+    "path": [
+      "email"
+    ]
+  },
+  {
+    "validation": "email",
+    "code": "invalid_string",
+    "message": "Email tidak valid",
+    "path": [
+      "email"
+    ]
+  },
+  {
+    "code": "too_small",
+    "minimum": 8,
+    "type": "string",
+    "inclusive": true,
+    "exact": false,
+    "message": "Password minimal 8 karakter",
+    "path": [
+      "password"
+    ]
+  },
+  {
+    "code": "too_small",
+    "minimum": 1,
+    "type": "string",
+    "inclusive": true,
+    "exact": false,
+    "message": "Password harus diisi",
+    "path": [
+      "password"
+    ]
+  },
+  {
+    "validation": "regex",
+    "code": "invalid_string",
+    "message": "Password harus memiliki minimal 1 huruf besar",
+    "path": [
+      "password"
+    ]
+  },
+  {
+    "validation": "regex",
+    "code": "invalid_string",
+    "message": "Password harus memiliki minimal 1 huruf kecil",
+    "path": [
+      "password"
+    ]
+  },
+  {
+    "validation": "regex",
+    "code": "invalid_string",
+    "message": "Password harus memiliki minimal 1 angka",
+    "path": [
+      "password"
+    ]
+  },
+  {
+    "validation": "regex",
+    "code": "invalid_string",
+    "message": "Password harus menerapkan setidaknya 1 simbol",
+    "path": [
+      "password"
+    ]
+  }
+]
+    at Object.get error [as error] (D:\wa\Backend-Test-Case\node_modules\zod\lib\types.js:55:31)
+    at ZodObject.parse (D:\wa\Backend-Test-Case\node_modules\zod\lib\types.js:160:22)
+    at D:\wa\Backend-Test-Case\src\controller\Auth-Controller.ts:11:48
+    at Generator.next (<anonymous>)
+    at D:\wa\Backend-Test-Case\src\controller\Auth-Controller.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (D:\wa\Backend-Test-Case\src\controller\Auth-Controller.ts:4:12)
+    at login (D:\wa\Backend-Test-Case\src\controller\Auth-Controller.ts:9:73)
+    at Layer.handle [as handle_request] (D:\wa\Backend-Test-Case\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\wa\Backend-Test-Case\node_modules\express\lib\router\route.js:149:13)
+ [LOGGER] 2024-09-27 02:42:38.762 AM ERROR : Error in login function: [
+  {
+    "code": "too_small",
+    "minimum": 1,
+    "type": "string",
+    "inclusive": true,
+    "exact": false,
+    "message": "Email Wajib Diisi",
+    "path": [
+      "email"
+    ]
+  },
+  {
+    "validation": "email",
+    "code": "invalid_string",
+    "message": "Email tidak valid",
+    "path": [
+      "email"
+    ]
+  },
+  {
+    "code": "too_small",
+    "minimum": 8,
+    "type": "string",
+    "inclusive": true,
+    "exact": false,
+    "message": "Password minimal 8 karakter",
+    "path": [
+      "password"
+    ]
+  },
+  {
+    "code": "too_small",
+    "minimum": 1,
+    "type": "string",
+    "inclusive": true,
+    "exact": false,
+    "message": "Password harus diisi",
+    "path": [
+      "password"
+    ]
+  },
+  {
+    "validation": "regex",
+    "code": "invalid_string",
+    "message": "Password harus memiliki minimal 1 huruf besar",
+    "path": [
+      "password"
+    ]
+  },
+  {
+    "validation": "regex",
+    "code": "invalid_string",
+    "message": "Password harus memiliki minimal 1 huruf kecil",
+    "path": [
+      "password"
+    ]
+  },
+  {
+    "validation": "regex",
+    "code": "invalid_string",
+    "message": "Password harus memiliki minimal 1 angka",
+    "path": [
+      "password"
+    ]
+  },
+  {
+    "validation": "regex",
+    "code": "invalid_string",
+    "message": "Password harus menerapkan setidaknya 1 simbol",
+    "path": [
+      "password"
+    ]
+  }
+]
+ [LOGGER] 2024-09-27 02:42:38.768 AM ERROR : uncaughtException: {"email":"Email Wajib Diisi","password":"Password minimal 8 karakter"}
+Error: {"email":"Email Wajib Diisi","password":"Password minimal 8 karakter"}
+    at D:\wa\Backend-Test-Case\src\controller\Auth-Controller.ts:43:13
+    at Generator.next (<anonymous>)
+    at D:\wa\Backend-Test-Case\src\controller\Auth-Controller.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (D:\wa\Backend-Test-Case\src\controller\Auth-Controller.ts:4:12)
+    at login (D:\wa\Backend-Test-Case\src\controller\Auth-Controller.ts:9:73)
+    at Layer.handle [as handle_request] (D:\wa\Backend-Test-Case\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\wa\Backend-Test-Case\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (D:\wa\Backend-Test-Case\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (D:\wa\Backend-Test-Case\node_modules\express\lib\router\layer.js:95:5)
+ [LOGGER] 2024-09-27 02:44:08.359 AM ERROR : uncaughtException: {"email":"Email Wajib Diisi","password":"Password minimal 8 karakter"}
+Error: {"email":"Email Wajib Diisi","password":"Password minimal 8 karakter"}
+    at D:\wa\Backend-Test-Case\src\controller\Auth-Controller.ts:43:13
+    at Generator.next (<anonymous>)
+    at D:\wa\Backend-Test-Case\src\controller\Auth-Controller.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (D:\wa\Backend-Test-Case\src\controller\Auth-Controller.ts:4:12)
+    at login (D:\wa\Backend-Test-Case\src\controller\Auth-Controller.ts:9:73)
+    at Layer.handle [as handle_request] (D:\wa\Backend-Test-Case\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\wa\Backend-Test-Case\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (D:\wa\Backend-Test-Case\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (D:\wa\Backend-Test-Case\node_modules\express\lib\router\layer.js:95:5)
+ [LOGGER] 2024-09-27 06:59:21.902 AM ERROR : uncaughtException: listen EADDRINUSE: address already in use :::3000
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1904:16)
+    at listenInCluster (node:net:1961:12)
+    at Server.listen (node:net:2063:7)
+    at Function.listen (D:\wa\Backend-Test-Case\node_modules\express\lib\application.js:635:24)
+    at Object.<anonymous> (D:\wa\Backend-Test-Case\src\index.ts:19:5)
+    at Module._compile (node:internal/modules/cjs/loader:1469:14)
+    at Module.m._compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1618:23)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1288:32)
+ [LOGGER] 2024-09-27 07:04:50.681 AM ERROR : uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/router/auth-router.ts[0m:[93m5[0m:[93m22[0m - [91merror[0m[90m TS2769: [0mNo overload matches this call.
+  The last overload gave the following error.
+    Argument of type '(req: Request, res: Response, next: NextFunction) => Promise<Response<any, Record<string, any>> | undefined>' is not assignable to parameter of type 'Application<Record<string, any>>'.
+      Type '(req: Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<...>' is missing the following properties from type 'Application<Record<string, any>>': init, defaultConfiguration, engine, set, and 63 more.
+
+[7m5[0m router.get('/login', authController.login);
+[7m [0m [91m                     ~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mnode_modules/@types/express-serve-static-core/index.d.ts[0m:[93m164[0m:[93m5[0m
+    [7m164[0m     (path: PathParams, subApplication: Application): T;
+    [7m   [0m [96m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    The last overload is declared here.
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/router/auth-router.ts[0m:[93m5[0m:[93m22[0m - [91merror[0m[90m TS2769: [0mNo overload matches this call.
+  The last overload gave the following error.
+    Argument of type '(req: Request, res: Response, next: NextFunction) => Promise<Response<any, Record<string, any>> | undefined>' is not assignable to parameter of type 'Application<Record<string, any>>'.
+      Type '(req: Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<...>' is missing the following properties from type 'Application<Record<string, any>>': init, defaultConfiguration, engine, set, and 63 more.
+
+[7m5[0m router.get('/login', authController.login);
+[7m [0m [91m                     ~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mnode_modules/@types/express-serve-static-core/index.d.ts[0m:[93m164[0m:[93m5[0m
+    [7m164[0m     (path: PathParams, subApplication: Application): T;
+    [7m   [0m [96m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    The last overload is declared here.
+
+    at createTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:859:12)
+    at reportTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:863:19)
+    at getOutput (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1077:36)
+    at Object.compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1433:41)
+    at Module.m._compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1617:30)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1288:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:1104:12)
+    at Module.require (node:internal/modules/cjs/loader:1311:19)
+ [LOGGER] 2024-09-27 07:04:58.148 AM ERROR : uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/router/auth-router.ts[0m:[93m5[0m:[93m22[0m - [91merror[0m[90m TS2769: [0mNo overload matches this call.
+  The last overload gave the following error.
+    Argument of type '(req: Request, res: Response, next: NextFunction) => Promise<Response<any, Record<string, any>> | undefined>' is not assignable to parameter of type 'Application<Record<string, any>>'.
+      Type '(req: Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<...>' is missing the following properties from type 'Application<Record<string, any>>': init, defaultConfiguration, engine, set, and 63 more.
+
+[7m5[0m router.get('/login', authController.login);
+[7m [0m [91m                     ~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mnode_modules/@types/express-serve-static-core/index.d.ts[0m:[93m164[0m:[93m5[0m
+    [7m164[0m     (path: PathParams, subApplication: Application): T;
+    [7m   [0m [96m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    The last overload is declared here.
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/router/auth-router.ts[0m:[93m5[0m:[93m22[0m - [91merror[0m[90m TS2769: [0mNo overload matches this call.
+  The last overload gave the following error.
+    Argument of type '(req: Request, res: Response, next: NextFunction) => Promise<Response<any, Record<string, any>> | undefined>' is not assignable to parameter of type 'Application<Record<string, any>>'.
+      Type '(req: Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<...>' is missing the following properties from type 'Application<Record<string, any>>': init, defaultConfiguration, engine, set, and 63 more.
+
+[7m5[0m router.get('/login', authController.login);
+[7m [0m [91m                     ~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mnode_modules/@types/express-serve-static-core/index.d.ts[0m:[93m164[0m:[93m5[0m
+    [7m164[0m     (path: PathParams, subApplication: Application): T;
+    [7m   [0m [96m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    The last overload is declared here.
+
+    at createTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:859:12)
+    at reportTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:863:19)
+    at getOutput (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1077:36)
+    at Object.compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1433:41)
+    at Module.m._compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1617:30)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1288:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:1104:12)
+    at Module.require (node:internal/modules/cjs/loader:1311:19)
+ [LOGGER] 2024-09-27 07:05:40.009 AM ERROR : uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/router/auth-router.ts[0m:[93m5[0m:[93m22[0m - [91merror[0m[90m TS2769: [0mNo overload matches this call.
+  The last overload gave the following error.
+    Argument of type '(req: Request, res: Response, next: NextFunction) => Promise<Response<any, Record<string, any>> | undefined>' is not assignable to parameter of type 'Application<Record<string, any>>'.
+      Type '(req: Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<...>' is missing the following properties from type 'Application<Record<string, any>>': init, defaultConfiguration, engine, set, and 63 more.
+
+[7m5[0m router.get('/login', authController.login);
+[7m [0m [91m                     ~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mnode_modules/@types/express-serve-static-core/index.d.ts[0m:[93m164[0m:[93m5[0m
+    [7m164[0m     (path: PathParams, subApplication: Application): T;
+    [7m   [0m [96m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    The last overload is declared here.
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/router/auth-router.ts[0m:[93m5[0m:[93m22[0m - [91merror[0m[90m TS2769: [0mNo overload matches this call.
+  The last overload gave the following error.
+    Argument of type '(req: Request, res: Response, next: NextFunction) => Promise<Response<any, Record<string, any>> | undefined>' is not assignable to parameter of type 'Application<Record<string, any>>'.
+      Type '(req: Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<...>' is missing the following properties from type 'Application<Record<string, any>>': init, defaultConfiguration, engine, set, and 63 more.
+
+[7m5[0m router.get('/login', authController.login);
+[7m [0m [91m                     ~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mnode_modules/@types/express-serve-static-core/index.d.ts[0m:[93m164[0m:[93m5[0m
+    [7m164[0m     (path: PathParams, subApplication: Application): T;
+    [7m   [0m [96m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    The last overload is declared here.
+
+    at createTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:859:12)
+    at reportTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:863:19)
+    at getOutput (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1077:36)
+    at Object.compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1433:41)
+    at Module.m._compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1617:30)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1288:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:1104:12)
+    at Module.require (node:internal/modules/cjs/loader:1311:19)
+ [LOGGER] 2024-09-27 07:06:32.329 AM ERROR : uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/router/auth-router.ts[0m:[93m5[0m:[93m22[0m - [91merror[0m[90m TS2769: [0mNo overload matches this call.
+  The last overload gave the following error.
+    Argument of type '(req: Request, res: Response, next: NextFunction) => Promise<Response<any, Record<string, any>> | undefined>' is not assignable to parameter of type 'Application<Record<string, any>>'.
+      Type '(req: Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<...>' is missing the following properties from type 'Application<Record<string, any>>': init, defaultConfiguration, engine, set, and 63 more.
+
+[7m5[0m router.get('/login', authController.login);
+[7m [0m [91m                     ~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mnode_modules/@types/express-serve-static-core/index.d.ts[0m:[93m164[0m:[93m5[0m
+    [7m164[0m     (path: PathParams, subApplication: Application): T;
+    [7m   [0m [96m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    The last overload is declared here.
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/router/auth-router.ts[0m:[93m5[0m:[93m22[0m - [91merror[0m[90m TS2769: [0mNo overload matches this call.
+  The last overload gave the following error.
+    Argument of type '(req: Request, res: Response, next: NextFunction) => Promise<Response<any, Record<string, any>> | undefined>' is not assignable to parameter of type 'Application<Record<string, any>>'.
+      Type '(req: Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<...>' is missing the following properties from type 'Application<Record<string, any>>': init, defaultConfiguration, engine, set, and 63 more.
+
+[7m5[0m router.get('/login', authController.login);
+[7m [0m [91m                     ~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mnode_modules/@types/express-serve-static-core/index.d.ts[0m:[93m164[0m:[93m5[0m
+    [7m164[0m     (path: PathParams, subApplication: Application): T;
+    [7m   [0m [96m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    The last overload is declared here.
+
+    at createTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:859:12)
+    at reportTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:863:19)
+    at getOutput (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1077:36)
+    at Object.compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1433:41)
+    at Module.m._compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1617:30)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1288:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:1104:12)
+    at Module.require (node:internal/modules/cjs/loader:1311:19)
+ [LOGGER] 2024-09-27 07:06:47.042 AM ERROR : uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/router/auth-router.ts[0m:[93m5[0m:[93m22[0m - [91merror[0m[90m TS2769: [0mNo overload matches this call.
+  The last overload gave the following error.
+    Argument of type '(req: Request, res: Response, next: NextFunction) => Promise<Response<any, Record<string, any>> | undefined>' is not assignable to parameter of type 'Application<Record<string, any>>'.
+      Type '(req: Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<...>' is missing the following properties from type 'Application<Record<string, any>>': init, defaultConfiguration, engine, set, and 63 more.
+
+[7m5[0m router.get('/login', authController.login);
+[7m [0m [91m                     ~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mnode_modules/@types/express-serve-static-core/index.d.ts[0m:[93m164[0m:[93m5[0m
+    [7m164[0m     (path: PathParams, subApplication: Application): T;
+    [7m   [0m [96m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    The last overload is declared here.
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/router/auth-router.ts[0m:[93m5[0m:[93m22[0m - [91merror[0m[90m TS2769: [0mNo overload matches this call.
+  The last overload gave the following error.
+    Argument of type '(req: Request, res: Response, next: NextFunction) => Promise<Response<any, Record<string, any>> | undefined>' is not assignable to parameter of type 'Application<Record<string, any>>'.
+      Type '(req: Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<...>' is missing the following properties from type 'Application<Record<string, any>>': init, defaultConfiguration, engine, set, and 63 more.
+
+[7m5[0m router.get('/login', authController.login);
+[7m [0m [91m                     ~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mnode_modules/@types/express-serve-static-core/index.d.ts[0m:[93m164[0m:[93m5[0m
+    [7m164[0m     (path: PathParams, subApplication: Application): T;
+    [7m   [0m [96m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    The last overload is declared here.
+
+    at createTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:859:12)
+    at reportTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:863:19)
+    at getOutput (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1077:36)
+    at Object.compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1433:41)
+    at Module.m._compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1617:30)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1288:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:1104:12)
+    at Module.require (node:internal/modules/cjs/loader:1311:19)
+ [LOGGER] 2024-09-27 07:07:56.772 AM ERROR : uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/router/auth-router.ts[0m:[93m5[0m:[93m22[0m - [91merror[0m[90m TS2769: [0mNo overload matches this call.
+  The last overload gave the following error.
+    Argument of type '(req: Request, res: Response, next: NextFunction) => Promise<Response>' is not assignable to parameter of type 'Application<Record<string, any>>'.
+      Type '(req: Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<...>' is missing the following properties from type 'Application<Record<string, any>>': init, defaultConfiguration, engine, set, and 63 more.
+
+[7m5[0m router.get('/login', authController.login);
+[7m [0m [91m                     ~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mnode_modules/@types/express-serve-static-core/index.d.ts[0m:[93m164[0m:[93m5[0m
+    [7m164[0m     (path: PathParams, subApplication: Application): T;
+    [7m   [0m [96m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    The last overload is declared here.
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/router/auth-router.ts[0m:[93m5[0m:[93m22[0m - [91merror[0m[90m TS2769: [0mNo overload matches this call.
+  The last overload gave the following error.
+    Argument of type '(req: Request, res: Response, next: NextFunction) => Promise<Response>' is not assignable to parameter of type 'Application<Record<string, any>>'.
+      Type '(req: Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<...>' is missing the following properties from type 'Application<Record<string, any>>': init, defaultConfiguration, engine, set, and 63 more.
+
+[7m5[0m router.get('/login', authController.login);
+[7m [0m [91m                     ~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mnode_modules/@types/express-serve-static-core/index.d.ts[0m:[93m164[0m:[93m5[0m
+    [7m164[0m     (path: PathParams, subApplication: Application): T;
+    [7m   [0m [96m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    The last overload is declared here.
+
+    at createTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:859:12)
+    at reportTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:863:19)
+    at getOutput (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1077:36)
+    at Object.compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1433:41)
+    at Module.m._compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1617:30)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1288:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:1104:12)
+    at Module.require (node:internal/modules/cjs/loader:1311:19)
+ [LOGGER] 2024-09-27 07:08:46.237 AM ERROR : uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/router/auth-router.ts[0m:[93m5[0m:[93m22[0m - [91merror[0m[90m TS2769: [0mNo overload matches this call.
+  The last overload gave the following error.
+    Argument of type '(req: Request, res: Response, next: NextFunction) => Promise<Response>' is not assignable to parameter of type 'Application<Record<string, any>>'.
+      Type '(req: Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<...>' is missing the following properties from type 'Application<Record<string, any>>': init, defaultConfiguration, engine, set, and 63 more.
+
+[7m5[0m router.get('/login', authController.login);
+[7m [0m [91m                     ~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mnode_modules/@types/express-serve-static-core/index.d.ts[0m:[93m164[0m:[93m5[0m
+    [7m164[0m     (path: PathParams, subApplication: Application): T;
+    [7m   [0m [96m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    The last overload is declared here.
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/router/auth-router.ts[0m:[93m5[0m:[93m22[0m - [91merror[0m[90m TS2769: [0mNo overload matches this call.
+  The last overload gave the following error.
+    Argument of type '(req: Request, res: Response, next: NextFunction) => Promise<Response>' is not assignable to parameter of type 'Application<Record<string, any>>'.
+      Type '(req: Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<...>' is missing the following properties from type 'Application<Record<string, any>>': init, defaultConfiguration, engine, set, and 63 more.
+
+[7m5[0m router.get('/login', authController.login);
+[7m [0m [91m                     ~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mnode_modules/@types/express-serve-static-core/index.d.ts[0m:[93m164[0m:[93m5[0m
+    [7m164[0m     (path: PathParams, subApplication: Application): T;
+    [7m   [0m [96m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    The last overload is declared here.
+
+    at createTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:859:12)
+    at reportTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:863:19)
+    at getOutput (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1077:36)
+    at Object.compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1433:41)
+    at Module.m._compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1617:30)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1288:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:1104:12)
+    at Module.require (node:internal/modules/cjs/loader:1311:19)
+ [LOGGER] 2024-09-27 07:12:10.150 AM ERROR : uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/router/auth-router.ts[0m:[93m5[0m:[93m22[0m - [91merror[0m[90m TS2769: [0mNo overload matches this call.
+  The last overload gave the following error.
+    Argument of type '(req: Request, res: Response, next: NextFunction) => Promise<Response | void>' is not assignable to parameter of type 'Application<Record<string, any>>'.
+      Type '(req: Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<...>' is missing the following properties from type 'Application<Record<string, any>>': init, defaultConfiguration, engine, set, and 63 more.
+
+[7m5[0m router.get('/login', authController.login);
+[7m [0m [91m                     ~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mnode_modules/@types/express-serve-static-core/index.d.ts[0m:[93m164[0m:[93m5[0m
+    [7m164[0m     (path: PathParams, subApplication: Application): T;
+    [7m   [0m [96m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    The last overload is declared here.
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/router/auth-router.ts[0m:[93m5[0m:[93m22[0m - [91merror[0m[90m TS2769: [0mNo overload matches this call.
+  The last overload gave the following error.
+    Argument of type '(req: Request, res: Response, next: NextFunction) => Promise<Response | void>' is not assignable to parameter of type 'Application<Record<string, any>>'.
+      Type '(req: Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<...>' is missing the following properties from type 'Application<Record<string, any>>': init, defaultConfiguration, engine, set, and 63 more.
+
+[7m5[0m router.get('/login', authController.login);
+[7m [0m [91m                     ~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mnode_modules/@types/express-serve-static-core/index.d.ts[0m:[93m164[0m:[93m5[0m
+    [7m164[0m     (path: PathParams, subApplication: Application): T;
+    [7m   [0m [96m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    The last overload is declared here.
+
+    at createTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:859:12)
+    at reportTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:863:19)
+    at getOutput (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1077:36)
+    at Object.compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1433:41)
+    at Module.m._compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1617:30)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1288:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:1104:12)
+    at Module.require (node:internal/modules/cjs/loader:1311:19)
+ [LOGGER] 2024-09-27 07:14:20.414 AM ERROR : uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/router/auth-router.ts[0m:[93m5[0m:[93m22[0m - [91merror[0m[90m TS2769: [0mNo overload matches this call.
+  The last overload gave the following error.
+    Argument of type '(req: Request, res: Response, next: NextFunction) => Promise<Response | void>' is not assignable to parameter of type 'Application<Record<string, any>>'.
+      Type '(req: Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<...>' is missing the following properties from type 'Application<Record<string, any>>': init, defaultConfiguration, engine, set, and 63 more.
+
+[7m5[0m router.get('/login', authController.login); // Correct method access
+[7m [0m [91m                     ~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mnode_modules/@types/express-serve-static-core/index.d.ts[0m:[93m164[0m:[93m5[0m
+    [7m164[0m     (path: PathParams, subApplication: Application): T;
+    [7m   [0m [96m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    The last overload is declared here.
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/router/auth-router.ts[0m:[93m5[0m:[93m22[0m - [91merror[0m[90m TS2769: [0mNo overload matches this call.
+  The last overload gave the following error.
+    Argument of type '(req: Request, res: Response, next: NextFunction) => Promise<Response | void>' is not assignable to parameter of type 'Application<Record<string, any>>'.
+      Type '(req: Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<...>' is missing the following properties from type 'Application<Record<string, any>>': init, defaultConfiguration, engine, set, and 63 more.
+
+[7m5[0m router.get('/login', authController.login); // Correct method access
+[7m [0m [91m                     ~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mnode_modules/@types/express-serve-static-core/index.d.ts[0m:[93m164[0m:[93m5[0m
+    [7m164[0m     (path: PathParams, subApplication: Application): T;
+    [7m   [0m [96m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    The last overload is declared here.
+
+    at createTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:859:12)
+    at reportTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:863:19)
+    at getOutput (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1077:36)
+    at Object.compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1433:41)
+    at Module.m._compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1617:30)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1288:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:1104:12)
+    at Module.require (node:internal/modules/cjs/loader:1311:19)
+ [LOGGER] 2024-09-27 07:15:12.224 AM ERROR : uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/router/auth-router.ts[0m:[93m2[0m:[93m8[0m - [91merror[0m[90m TS1192: [0mModule '"D:/wa/Backend-Test-Case/src/controller/auth-controller"' has no default export.
+
+[7m2[0m import authController from '../controller/auth-controller'; // Correct import
+[7m [0m [91m       ~~~~~~~~~~~~~~[0m
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/router/auth-router.ts[0m:[93m2[0m:[93m8[0m - [91merror[0m[90m TS1192: [0mModule '"D:/wa/Backend-Test-Case/src/controller/auth-controller"' has no default export.
+
+[7m2[0m import authController from '../controller/auth-controller'; // Correct import
+[7m [0m [91m       ~~~~~~~~~~~~~~[0m
+
+    at createTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:859:12)
+    at reportTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:863:19)
+    at getOutput (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1077:36)
+    at Object.compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1433:41)
+    at Module.m._compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1617:30)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1288:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:1104:12)
+    at Module.require (node:internal/modules/cjs/loader:1311:19)
+ [LOGGER] 2024-09-27 07:15:30.533 AM ERROR : uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/router/auth-router.ts[0m:[93m5[0m:[93m22[0m - [91merror[0m[90m TS2769: [0mNo overload matches this call.
+  The last overload gave the following error.
+    Argument of type '(req: Request, res: Response, next: NextFunction) => Promise<Response | void>' is not assignable to parameter of type 'Application<Record<string, any>>'.
+      Type '(req: Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<...>' is missing the following properties from type 'Application<Record<string, any>>': init, defaultConfiguration, engine, set, and 63 more.
+
+[7m5[0m router.get('/login', login); // Correct method access
+[7m [0m [91m                     ~~~~~[0m
+
+  [96mnode_modules/@types/express-serve-static-core/index.d.ts[0m:[93m164[0m:[93m5[0m
+    [7m164[0m     (path: PathParams, subApplication: Application): T;
+    [7m   [0m [96m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    The last overload is declared here.
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/router/auth-router.ts[0m:[93m5[0m:[93m22[0m - [91merror[0m[90m TS2769: [0mNo overload matches this call.
+  The last overload gave the following error.
+    Argument of type '(req: Request, res: Response, next: NextFunction) => Promise<Response | void>' is not assignable to parameter of type 'Application<Record<string, any>>'.
+      Type '(req: Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<...>' is missing the following properties from type 'Application<Record<string, any>>': init, defaultConfiguration, engine, set, and 63 more.
+
+[7m5[0m router.get('/login', login); // Correct method access
+[7m [0m [91m                     ~~~~~[0m
+
+  [96mnode_modules/@types/express-serve-static-core/index.d.ts[0m:[93m164[0m:[93m5[0m
+    [7m164[0m     (path: PathParams, subApplication: Application): T;
+    [7m   [0m [96m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    The last overload is declared here.
+
+    at createTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:859:12)
+    at reportTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:863:19)
+    at getOutput (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1077:36)
+    at Object.compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1433:41)
+    at Module.m._compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1617:30)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1288:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:1104:12)
+    at Module.require (node:internal/modules/cjs/loader:1311:19)
+ [LOGGER] 2024-09-27 07:16:36.601 AM ERROR : uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/router/auth-router.ts[0m:[93m5[0m:[93m22[0m - [91merror[0m[90m TS2769: [0mNo overload matches this call.
+  The last overload gave the following error.
+    Argument of type '(req: Request, res: Response, next: NextFunction) => Promise<Response | void>' is not assignable to parameter of type 'Application<Record<string, any>>'.
+      Type '(req: Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<...>' is missing the following properties from type 'Application<Record<string, any>>': init, defaultConfiguration, engine, set, and 63 more.
+
+[7m5[0m router.get('/login', login); // Correct method access
+[7m [0m [91m                     ~~~~~[0m
+
+  [96mnode_modules/@types/express-serve-static-core/index.d.ts[0m:[93m164[0m:[93m5[0m
+    [7m164[0m     (path: PathParams, subApplication: Application): T;
+    [7m   [0m [96m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    The last overload is declared here.
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/router/auth-router.ts[0m:[93m5[0m:[93m22[0m - [91merror[0m[90m TS2769: [0mNo overload matches this call.
+  The last overload gave the following error.
+    Argument of type '(req: Request, res: Response, next: NextFunction) => Promise<Response | void>' is not assignable to parameter of type 'Application<Record<string, any>>'.
+      Type '(req: Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<...>' is missing the following properties from type 'Application<Record<string, any>>': init, defaultConfiguration, engine, set, and 63 more.
+
+[7m5[0m router.get('/login', login); // Correct method access
+[7m [0m [91m                     ~~~~~[0m
+
+  [96mnode_modules/@types/express-serve-static-core/index.d.ts[0m:[93m164[0m:[93m5[0m
+    [7m164[0m     (path: PathParams, subApplication: Application): T;
+    [7m   [0m [96m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    The last overload is declared here.
+
+    at createTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:859:12)
+    at reportTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:863:19)
+    at getOutput (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1077:36)
+    at Object.compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1433:41)
+    at Module.m._compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1617:30)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1288:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:1104:12)
+    at Module.require (node:internal/modules/cjs/loader:1311:19)
+ [LOGGER] 2024-09-27 07:18:27.689 AM ERROR : uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/router/auth-router.ts[0m:[93m5[0m:[93m22[0m - [91merror[0m[90m TS2769: [0mNo overload matches this call.
+  The last overload gave the following error.
+    Argument of type '(req: Request, res: Response, next: NextFunction) => Promise<Response | void>' is not assignable to parameter of type 'Application<Record<string, any>>'.
+      Type '(req: Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<...>' is missing the following properties from type 'Application<Record<string, any>>': init, defaultConfiguration, engine, set, and 63 more.
+
+[7m5[0m router.get('/login', login);
+[7m [0m [91m                     ~~~~~[0m
+
+  [96mnode_modules/@types/express-serve-static-core/index.d.ts[0m:[93m164[0m:[93m5[0m
+    [7m164[0m     (path: PathParams, subApplication: Application): T;
+    [7m   [0m [96m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    The last overload is declared here.
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/router/auth-router.ts[0m:[93m5[0m:[93m22[0m - [91merror[0m[90m TS2769: [0mNo overload matches this call.
+  The last overload gave the following error.
+    Argument of type '(req: Request, res: Response, next: NextFunction) => Promise<Response | void>' is not assignable to parameter of type 'Application<Record<string, any>>'.
+      Type '(req: Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<...>' is missing the following properties from type 'Application<Record<string, any>>': init, defaultConfiguration, engine, set, and 63 more.
+
+[7m5[0m router.get('/login', login);
+[7m [0m [91m                     ~~~~~[0m
+
+  [96mnode_modules/@types/express-serve-static-core/index.d.ts[0m:[93m164[0m:[93m5[0m
+    [7m164[0m     (path: PathParams, subApplication: Application): T;
+    [7m   [0m [96m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    The last overload is declared here.
+
+    at createTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:859:12)
+    at reportTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:863:19)
+    at getOutput (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1077:36)
+    at Object.compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1433:41)
+    at Module.m._compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1617:30)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1288:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:1104:12)
+    at Module.require (node:internal/modules/cjs/loader:1311:19)
+ [LOGGER] 2024-09-27 07:18:54.720 AM ERROR : uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/router/auth-router.ts[0m:[93m5[0m:[93m22[0m - [91merror[0m[90m TS2769: [0mNo overload matches this call.
+  The last overload gave the following error.
+    Argument of type '(req: Request, res: Response, next: NextFunction) => Promise<Response | void>' is not assignable to parameter of type 'Application<Record<string, any>>'.
+      Type '(req: Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<...>' is missing the following properties from type 'Application<Record<string, any>>': init, defaultConfiguration, engine, set, and 63 more.
+
+[7m5[0m router.get('/login', login);
+[7m [0m [91m                     ~~~~~[0m
+
+  [96mnode_modules/@types/express-serve-static-core/index.d.ts[0m:[93m164[0m:[93m5[0m
+    [7m164[0m     (path: PathParams, subApplication: Application): T;
+    [7m   [0m [96m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    The last overload is declared here.
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/router/auth-router.ts[0m:[93m5[0m:[93m22[0m - [91merror[0m[90m TS2769: [0mNo overload matches this call.
+  The last overload gave the following error.
+    Argument of type '(req: Request, res: Response, next: NextFunction) => Promise<Response | void>' is not assignable to parameter of type 'Application<Record<string, any>>'.
+      Type '(req: Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<...>' is missing the following properties from type 'Application<Record<string, any>>': init, defaultConfiguration, engine, set, and 63 more.
+
+[7m5[0m router.get('/login', login);
+[7m [0m [91m                     ~~~~~[0m
+
+  [96mnode_modules/@types/express-serve-static-core/index.d.ts[0m:[93m164[0m:[93m5[0m
+    [7m164[0m     (path: PathParams, subApplication: Application): T;
+    [7m   [0m [96m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    The last overload is declared here.
+
+    at createTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:859:12)
+    at reportTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:863:19)
+    at getOutput (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1077:36)
+    at Object.compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1433:41)
+    at Module.m._compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1617:30)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1288:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:1104:12)
+    at Module.require (node:internal/modules/cjs/loader:1311:19)
+ [LOGGER] 2024-09-27 07:19:16.076 AM ERROR : uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/router/auth-router.ts[0m:[93m5[0m:[93m22[0m - [91merror[0m[90m TS2769: [0mNo overload matches this call.
+  The last overload gave the following error.
+    Argument of type '(req: Request, res: Response, next: NextFunction) => Promise<Response | void>' is not assignable to parameter of type 'Application<Record<string, any>>'.
+      Type '(req: Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<...>' is missing the following properties from type 'Application<Record<string, any>>': init, defaultConfiguration, engine, set, and 63 more.
+
+[7m5[0m router.get('/login', login);
+[7m [0m [91m                     ~~~~~[0m
+
+  [96mnode_modules/@types/express-serve-static-core/index.d.ts[0m:[93m164[0m:[93m5[0m
+    [7m164[0m     (path: PathParams, subApplication: Application): T;
+    [7m   [0m [96m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    The last overload is declared here.
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/router/auth-router.ts[0m:[93m5[0m:[93m22[0m - [91merror[0m[90m TS2769: [0mNo overload matches this call.
+  The last overload gave the following error.
+    Argument of type '(req: Request, res: Response, next: NextFunction) => Promise<Response | void>' is not assignable to parameter of type 'Application<Record<string, any>>'.
+      Type '(req: Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<...>' is missing the following properties from type 'Application<Record<string, any>>': init, defaultConfiguration, engine, set, and 63 more.
+
+[7m5[0m router.get('/login', login);
+[7m [0m [91m                     ~~~~~[0m
+
+  [96mnode_modules/@types/express-serve-static-core/index.d.ts[0m:[93m164[0m:[93m5[0m
+    [7m164[0m     (path: PathParams, subApplication: Application): T;
+    [7m   [0m [96m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    The last overload is declared here.
+
+    at createTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:859:12)
+    at reportTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:863:19)
+    at getOutput (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1077:36)
+    at Object.compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1433:41)
+    at Module.m._compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1617:30)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1288:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:1104:12)
+    at Module.require (node:internal/modules/cjs/loader:1311:19)
+ [LOGGER] 2024-09-27 07:19:28.382 AM ERROR : uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/router/auth-router.ts[0m:[93m2[0m:[93m23[0m - [91merror[0m[90m TS2307: [0mCannot find module '../controller/auth-controller' or its corresponding type declarations.
+
+[7m2[0m import { login } from '../controller/auth-controller';
+[7m [0m [91m                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/router/auth-router.ts[0m:[93m2[0m:[93m23[0m - [91merror[0m[90m TS2307: [0mCannot find module '../controller/auth-controller' or its corresponding type declarations.
+
+[7m2[0m import { login } from '../controller/auth-controller';
+[7m [0m [91m                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+    at createTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:859:12)
+    at reportTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:863:19)
+    at getOutput (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1077:36)
+    at Object.compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1433:41)
+    at Module.m._compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1617:30)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1288:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:1104:12)
+    at Module.require (node:internal/modules/cjs/loader:1311:19)
+ [LOGGER] 2024-09-27 07:19:44.747 AM ERROR : uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/router/auth-router.ts[0m:[93m5[0m:[93m22[0m - [91merror[0m[90m TS2769: [0mNo overload matches this call.
+  The last overload gave the following error.
+    Argument of type '(req: Request, res: Response, next: NextFunction) => Promise<Response | void>' is not assignable to parameter of type 'Application<Record<string, any>>'.
+      Type '(req: Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<...>' is missing the following properties from type 'Application<Record<string, any>>': init, defaultConfiguration, engine, set, and 63 more.
+
+[7m5[0m router.get('/login', login);
+[7m [0m [91m                     ~~~~~[0m
+
+  [96mnode_modules/@types/express-serve-static-core/index.d.ts[0m:[93m164[0m:[93m5[0m
+    [7m164[0m     (path: PathParams, subApplication: Application): T;
+    [7m   [0m [96m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    The last overload is declared here.
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/router/auth-router.ts[0m:[93m5[0m:[93m22[0m - [91merror[0m[90m TS2769: [0mNo overload matches this call.
+  The last overload gave the following error.
+    Argument of type '(req: Request, res: Response, next: NextFunction) => Promise<Response | void>' is not assignable to parameter of type 'Application<Record<string, any>>'.
+      Type '(req: Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<...>' is missing the following properties from type 'Application<Record<string, any>>': init, defaultConfiguration, engine, set, and 63 more.
+
+[7m5[0m router.get('/login', login);
+[7m [0m [91m                     ~~~~~[0m
+
+  [96mnode_modules/@types/express-serve-static-core/index.d.ts[0m:[93m164[0m:[93m5[0m
+    [7m164[0m     (path: PathParams, subApplication: Application): T;
+    [7m   [0m [96m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    The last overload is declared here.
+
+    at createTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:859:12)
+    at reportTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:863:19)
+    at getOutput (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1077:36)
+    at Object.compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1433:41)
+    at Module.m._compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1617:30)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1288:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:1104:12)
+    at Module.require (node:internal/modules/cjs/loader:1311:19)
+ [LOGGER] 2024-09-27 07:29:30.055 AM ERROR : uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/controller/auth-controller.ts[0m:[93m2[0m:[93m20[0m - [91merror[0m[90m TS2307: [0mCannot find module 'src/utils/logging' or its corresponding type declarations.
+
+[7m2[0m import logger from 'src/utils/logging';
+[7m [0m [91m                   ~~~~~~~~~~~~~~~~~~~[0m
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/controller/auth-controller.ts[0m:[93m2[0m:[93m20[0m - [91merror[0m[90m TS2307: [0mCannot find module 'src/utils/logging' or its corresponding type declarations.
+
+[7m2[0m import logger from 'src/utils/logging';
+[7m [0m [91m                   ~~~~~~~~~~~~~~~~~~~[0m
+
+    at createTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:859:12)
+    at reportTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:863:19)
+    at getOutput (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1077:36)
+    at Object.compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1433:41)
+    at Module.m._compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1617:30)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1288:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:1104:12)
+    at Module.require (node:internal/modules/cjs/loader:1311:19)
+ [LOGGER] 2024-09-27 07:30:32.948 AM ERROR : uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/controller/auth-controller.ts[0m:[93m9[0m:[93m26[0m - [91merror[0m[90m TS2304: [0mCannot find name 'loginSchemaValidation'.
+
+[7m9[0m     const validateData = loginSchemaValidation.parse(req.body);
+[7m [0m [91m                         ~~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/controller/auth-controller.ts[0m:[93m12[0m:[93m29[0m - [91merror[0m[90m TS2304: [0mCannot find name 'memberSchema'.
+
+[7m12[0m     const userExist = await memberSchema.findOne({ email: validateData.email });
+[7m  [0m [91m                            ~~~~~~~~~~~~[0m
+[96msrc/controller/auth-controller.ts[0m:[93m14[0m:[93m17[0m - [91merror[0m[90m TS2304: [0mCannot find name 'ResponseError'.
+
+[7m14[0m       throw new ResponseError('Failed', 401, 'Email or Password is wrong');
+[7m  [0m [91m                ~~~~~~~~~~~~~[0m
+[96msrc/controller/auth-controller.ts[0m:[93m16[0m:[93m29[0m - [91merror[0m[90m TS2304: [0mCannot find name 'compare'.
+
+[7m16[0m     const isPasswordValid = compare(validateData.password, userExist.password);
+[7m  [0m [91m                            ~~~~~~~[0m
+[96msrc/controller/auth-controller.ts[0m:[93m18[0m:[93m17[0m - [91merror[0m[90m TS2304: [0mCannot find name 'ResponseError'.
+
+[7m18[0m       throw new ResponseError('Failed', 401, 'Email or Password is wrong');
+[7m  [0m [91m                ~~~~~~~~~~~~~[0m
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/controller/auth-controller.ts[0m:[93m9[0m:[93m26[0m - [91merror[0m[90m TS2304: [0mCannot find name 'loginSchemaValidation'.
+
+[7m9[0m     const validateData = loginSchemaValidation.parse(req.body);
+[7m [0m [91m                         ~~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/controller/auth-controller.ts[0m:[93m12[0m:[93m29[0m - [91merror[0m[90m TS2304: [0mCannot find name 'memberSchema'.
+
+[7m12[0m     const userExist = await memberSchema.findOne({ email: validateData.email });
+[7m  [0m [91m                            ~~~~~~~~~~~~[0m
+[96msrc/controller/auth-controller.ts[0m:[93m14[0m:[93m17[0m - [91merror[0m[90m TS2304: [0mCannot find name 'ResponseError'.
+
+[7m14[0m       throw new ResponseError('Failed', 401, 'Email or Password is wrong');
+[7m  [0m [91m                ~~~~~~~~~~~~~[0m
+[96msrc/controller/auth-controller.ts[0m:[93m16[0m:[93m29[0m - [91merror[0m[90m TS2304: [0mCannot find name 'compare'.
+
+[7m16[0m     const isPasswordValid = compare(validateData.password, userExist.password);
+[7m  [0m [91m                            ~~~~~~~[0m
+[96msrc/controller/auth-controller.ts[0m:[93m18[0m:[93m17[0m - [91merror[0m[90m TS2304: [0mCannot find name 'ResponseError'.
+
+[7m18[0m       throw new ResponseError('Failed', 401, 'Email or Password is wrong');
+[7m  [0m [91m                ~~~~~~~~~~~~~[0m
+
+    at createTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:859:12)
+    at reportTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:863:19)
+    at getOutput (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1077:36)
+    at Object.compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1433:41)
+    at Module.m._compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1617:30)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1288:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:1104:12)
+    at Module.require (node:internal/modules/cjs/loader:1311:19)
+ [LOGGER] 2024-09-27 07:31:18.923 AM ERROR : uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/controller/auth-controller.ts[0m:[93m16[0m:[93m42[0m - [91merror[0m[90m TS2339: [0mProperty 'findOne' does not exist on type 'Schema<any, Model<any, any, any, any, any, any>, {}, {}, {}, {}, DefaultSchemaOptions, { email: string; password: string; code: string; name: string; borrowedBooks: string[]; penaltyEndDate: NativeDate; }, Document<...> & ... 1 more ... & { ...; }>'.
+
+[7m16[0m     const userExist = await memberSchema.findOne({ email: validateData.email });
+[7m  [0m [91m                                         ~~~~~~~[0m
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/controller/auth-controller.ts[0m:[93m16[0m:[93m42[0m - [91merror[0m[90m TS2339: [0mProperty 'findOne' does not exist on type 'Schema<any, Model<any, any, any, any, any, any>, {}, {}, {}, {}, DefaultSchemaOptions, { email: string; password: string; code: string; name: string; borrowedBooks: string[]; penaltyEndDate: NativeDate; }, Document<...> & ... 1 more ... & { ...; }>'.
+
+[7m16[0m     const userExist = await memberSchema.findOne({ email: validateData.email });
+[7m  [0m [91m                                         ~~~~~~~[0m
+
+    at createTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:859:12)
+    at reportTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:863:19)
+    at getOutput (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1077:36)
+    at Object.compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1433:41)
+    at Module.m._compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1617:30)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1288:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:1104:12)
+    at Module.require (node:internal/modules/cjs/loader:1311:19)
+ [LOGGER] 2024-09-27 07:33:26.622 AM ERROR : uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/router/auth-router.ts[0m:[93m6[0m:[93m24[0m - [91merror[0m[90m TS2769: [0mNo overload matches this call.
+  The last overload gave the following error.
+    Argument of type '(req: Request, res: Response, next: NextFunction) => Promise<Response | void>' is not assignable to parameter of type 'Application<Record<string, any>>'.
+      Type '(req: Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<...>' is missing the following properties from type 'Application<Record<string, any>>': init, defaultConfiguration, engine, set, and 63 more.
+
+[7m6[0m router.post('/login',  login);
+[7m [0m [91m                       ~~~~~[0m
+
+  [96mnode_modules/@types/express-serve-static-core/index.d.ts[0m:[93m164[0m:[93m5[0m
+    [7m164[0m     (path: PathParams, subApplication: Application): T;
+    [7m   [0m [96m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    The last overload is declared here.
+[96msrc/router/auth-router.ts[0m:[93m7[0m:[93m1[0m - [91merror[0m[90m TS1128: [0mDeclaration or statement expected.
+
+[7m7[0m });
+[7m [0m [91m~[0m
+[96msrc/router/auth-router.ts[0m:[93m7[0m:[93m2[0m - [91merror[0m[90m TS1128: [0mDeclaration or statement expected.
+
+[7m7[0m });
+[7m [0m [91m ~[0m
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/router/auth-router.ts[0m:[93m6[0m:[93m24[0m - [91merror[0m[90m TS2769: [0mNo overload matches this call.
+  The last overload gave the following error.
+    Argument of type '(req: Request, res: Response, next: NextFunction) => Promise<Response | void>' is not assignable to parameter of type 'Application<Record<string, any>>'.
+      Type '(req: Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<...>' is missing the following properties from type 'Application<Record<string, any>>': init, defaultConfiguration, engine, set, and 63 more.
+
+[7m6[0m router.post('/login',  login);
+[7m [0m [91m                       ~~~~~[0m
+
+  [96mnode_modules/@types/express-serve-static-core/index.d.ts[0m:[93m164[0m:[93m5[0m
+    [7m164[0m     (path: PathParams, subApplication: Application): T;
+    [7m   [0m [96m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    The last overload is declared here.
+[96msrc/router/auth-router.ts[0m:[93m7[0m:[93m1[0m - [91merror[0m[90m TS1128: [0mDeclaration or statement expected.
+
+[7m7[0m });
+[7m [0m [91m~[0m
+[96msrc/router/auth-router.ts[0m:[93m7[0m:[93m2[0m - [91merror[0m[90m TS1128: [0mDeclaration or statement expected.
+
+[7m7[0m });
+[7m [0m [91m ~[0m
+
+    at createTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:859:12)
+    at reportTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:863:19)
+    at getOutput (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1077:36)
+    at Object.compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1433:41)
+    at Module.m._compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1617:30)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1288:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:1104:12)
+    at Module.require (node:internal/modules/cjs/loader:1311:19)
+ [LOGGER] 2024-09-27 07:33:44.154 AM ERROR : uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/router/auth-router.ts[0m:[93m3[0m:[93m16[0m - [91merror[0m[90m TS2304: [0mCannot find name 'express'.
+
+[7m3[0m const router = express.Router();
+[7m [0m [91m               ~~~~~~~[0m
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/router/auth-router.ts[0m:[93m3[0m:[93m16[0m - [91merror[0m[90m TS2304: [0mCannot find name 'express'.
+
+[7m3[0m const router = express.Router();
+[7m [0m [91m               ~~~~~~~[0m
+
+    at createTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:859:12)
+    at reportTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:863:19)
+    at getOutput (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1077:36)
+    at Object.compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1433:41)
+    at Module.m._compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1617:30)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1288:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:1104:12)
+    at Module.require (node:internal/modules/cjs/loader:1311:19)
+ [LOGGER] 2024-09-27 07:33:51.913 AM ERROR : uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/router/auth-router.ts[0m:[93m6[0m:[93m23[0m - [91merror[0m[90m TS2769: [0mNo overload matches this call.
+  The last overload gave the following error.
+    Argument of type '(req: Request, res: Response, next: NextFunction) => Promise<Response | void>' is not assignable to parameter of type 'Application<Record<string, any>>'.
+      Type '(req: Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<...>' is missing the following properties from type 'Application<Record<string, any>>': init, defaultConfiguration, engine, set, and 63 more.
+
+[7m6[0m router.post('/login', login);
+[7m [0m [91m                      ~~~~~[0m
+
+  [96mnode_modules/@types/express-serve-static-core/index.d.ts[0m:[93m164[0m:[93m5[0m
+    [7m164[0m     (path: PathParams, subApplication: Application): T;
+    [7m   [0m [96m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    The last overload is declared here.
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/router/auth-router.ts[0m:[93m6[0m:[93m23[0m - [91merror[0m[90m TS2769: [0mNo overload matches this call.
+  The last overload gave the following error.
+    Argument of type '(req: Request, res: Response, next: NextFunction) => Promise<Response | void>' is not assignable to parameter of type 'Application<Record<string, any>>'.
+      Type '(req: Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<...>' is missing the following properties from type 'Application<Record<string, any>>': init, defaultConfiguration, engine, set, and 63 more.
+
+[7m6[0m router.post('/login', login);
+[7m [0m [91m                      ~~~~~[0m
+
+  [96mnode_modules/@types/express-serve-static-core/index.d.ts[0m:[93m164[0m:[93m5[0m
+    [7m164[0m     (path: PathParams, subApplication: Application): T;
+    [7m   [0m [96m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    The last overload is declared here.
+
+    at createTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:859:12)
+    at reportTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:863:19)
+    at getOutput (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1077:36)
+    at Object.compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1433:41)
+    at Module.m._compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1617:30)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1288:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:1104:12)
+    at Module.require (node:internal/modules/cjs/loader:1311:19)
+ [LOGGER] 2024-09-27 07:35:13.195 AM ERROR : uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/router/auth-router.ts[0m:[93m6[0m:[93m23[0m - [91merror[0m[90m TS2769: [0mNo overload matches this call.
+  The last overload gave the following error.
+    Argument of type '(req: Request, res: Response, next: NextFunction) => Promise<Response | void>' is not assignable to parameter of type 'Application<Record<string, any>>'.
+      Type '(req: Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<...>' is missing the following properties from type 'Application<Record<string, any>>': init, defaultConfiguration, engine, set, and 63 more.
+
+[7m6[0m router.post('/login', login);
+[7m [0m [91m                      ~~~~~[0m
+
+  [96mnode_modules/@types/express-serve-static-core/index.d.ts[0m:[93m164[0m:[93m5[0m
+    [7m164[0m     (path: PathParams, subApplication: Application): T;
+    [7m   [0m [96m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    The last overload is declared here.
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/router/auth-router.ts[0m:[93m6[0m:[93m23[0m - [91merror[0m[90m TS2769: [0mNo overload matches this call.
+  The last overload gave the following error.
+    Argument of type '(req: Request, res: Response, next: NextFunction) => Promise<Response | void>' is not assignable to parameter of type 'Application<Record<string, any>>'.
+      Type '(req: Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<...>' is missing the following properties from type 'Application<Record<string, any>>': init, defaultConfiguration, engine, set, and 63 more.
+
+[7m6[0m router.post('/login', login);
+[7m [0m [91m                      ~~~~~[0m
+
+  [96mnode_modules/@types/express-serve-static-core/index.d.ts[0m:[93m164[0m:[93m5[0m
+    [7m164[0m     (path: PathParams, subApplication: Application): T;
+    [7m   [0m [96m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    The last overload is declared here.
+
+    at createTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:859:12)
+    at reportTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:863:19)
+    at getOutput (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1077:36)
+    at Object.compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1433:41)
+    at Module.m._compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1617:30)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1288:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:1104:12)
+    at Module.require (node:internal/modules/cjs/loader:1311:19)
+ [LOGGER] 2024-09-27 07:38:05.500 AM ERROR : uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/router/auth-router.ts[0m:[93m6[0m:[93m23[0m - [91merror[0m[90m TS2769: [0mNo overload matches this call.
+  The last overload gave the following error.
+    Argument of type '(req: Request, res: Response, next: NextFunction) => Promise<Response | void>' is not assignable to parameter of type 'Application<Record<string, any>>'.
+      Type '(req: Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<...>' is missing the following properties from type 'Application<Record<string, any>>': init, defaultConfiguration, engine, set, and 63 more.
+
+[7m6[0m router.post('/login', login);
+[7m [0m [91m                      ~~~~~[0m
+
+  [96mnode_modules/@types/express-serve-static-core/index.d.ts[0m:[93m164[0m:[93m5[0m
+    [7m164[0m     (path: PathParams, subApplication: Application): T;
+    [7m   [0m [96m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    The last overload is declared here.
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/router/auth-router.ts[0m:[93m6[0m:[93m23[0m - [91merror[0m[90m TS2769: [0mNo overload matches this call.
+  The last overload gave the following error.
+    Argument of type '(req: Request, res: Response, next: NextFunction) => Promise<Response | void>' is not assignable to parameter of type 'Application<Record<string, any>>'.
+      Type '(req: Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<...>' is missing the following properties from type 'Application<Record<string, any>>': init, defaultConfiguration, engine, set, and 63 more.
+
+[7m6[0m router.post('/login', login);
+[7m [0m [91m                      ~~~~~[0m
+
+  [96mnode_modules/@types/express-serve-static-core/index.d.ts[0m:[93m164[0m:[93m5[0m
+    [7m164[0m     (path: PathParams, subApplication: Application): T;
+    [7m   [0m [96m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    The last overload is declared here.
+
+    at createTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:859:12)
+    at reportTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:863:19)
+    at getOutput (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1077:36)
+    at Object.compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1433:41)
+    at Module.m._compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1617:30)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1288:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:1104:12)
+    at Module.require (node:internal/modules/cjs/loader:1311:19)
+ [LOGGER] 2024-09-27 01:17:19.337 PM ERROR : uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/router/auth-router.ts[0m:[93m6[0m:[93m23[0m - [91merror[0m[90m TS2769: [0mNo overload matches this call.
+  The last overload gave the following error.
+    Argument of type '(req: Request, res: Response, next: NextFunction) => Promise<void | Response<any, Record<string, any>>>' is not assignable to parameter of type 'Application<Record<string, any>>'.
+      Type '(req: Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<...>' is missing the following properties from type 'Application<Record<string, any>>': init, defaultConfiguration, engine, set, and 63 more.
+
+[7m6[0m router.post('/login', login);
+[7m [0m [91m                      ~~~~~[0m
+
+  [96mnode_modules/@types/express-serve-static-core/index.d.ts[0m:[93m164[0m:[93m5[0m
+    [7m164[0m     (path: PathParams, subApplication: Application): T;
+    [7m   [0m [96m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    The last overload is declared here.
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/router/auth-router.ts[0m:[93m6[0m:[93m23[0m - [91merror[0m[90m TS2769: [0mNo overload matches this call.
+  The last overload gave the following error.
+    Argument of type '(req: Request, res: Response, next: NextFunction) => Promise<void | Response<any, Record<string, any>>>' is not assignable to parameter of type 'Application<Record<string, any>>'.
+      Type '(req: Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<...>' is missing the following properties from type 'Application<Record<string, any>>': init, defaultConfiguration, engine, set, and 63 more.
+
+[7m6[0m router.post('/login', login);
+[7m [0m [91m                      ~~~~~[0m
+
+  [96mnode_modules/@types/express-serve-static-core/index.d.ts[0m:[93m164[0m:[93m5[0m
+    [7m164[0m     (path: PathParams, subApplication: Application): T;
+    [7m   [0m [96m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    The last overload is declared here.
+
+    at createTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:859:12)
+    at reportTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:863:19)
+    at getOutput (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1077:36)
+    at Object.compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1433:41)
+    at Module.m._compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1617:30)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1288:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:1104:12)
+    at Module.require (node:internal/modules/cjs/loader:1311:19)
+ [LOGGER] 2024-09-27 01:18:38.765 PM ERROR : uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/router/auth-router.ts[0m:[93m6[0m:[93m23[0m - [91merror[0m[90m TS2769: [0mNo overload matches this call.
+  The last overload gave the following error.
+    Argument of type '(req: Request, res: Response, next: NextFunction) => Promise<Response<any, Record<string, any>> | undefined>' is not assignable to parameter of type 'Application<Record<string, any>>'.
+      Type '(req: Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<...>' is missing the following properties from type 'Application<Record<string, any>>': init, defaultConfiguration, engine, set, and 63 more.
+
+[7m6[0m router.post('/login', login);
+[7m [0m [91m                      ~~~~~[0m
+
+  [96mnode_modules/@types/express-serve-static-core/index.d.ts[0m:[93m164[0m:[93m5[0m
+    [7m164[0m     (path: PathParams, subApplication: Application): T;
+    [7m   [0m [96m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    The last overload is declared here.
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/router/auth-router.ts[0m:[93m6[0m:[93m23[0m - [91merror[0m[90m TS2769: [0mNo overload matches this call.
+  The last overload gave the following error.
+    Argument of type '(req: Request, res: Response, next: NextFunction) => Promise<Response<any, Record<string, any>> | undefined>' is not assignable to parameter of type 'Application<Record<string, any>>'.
+      Type '(req: Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<...>' is missing the following properties from type 'Application<Record<string, any>>': init, defaultConfiguration, engine, set, and 63 more.
+
+[7m6[0m router.post('/login', login);
+[7m [0m [91m                      ~~~~~[0m
+
+  [96mnode_modules/@types/express-serve-static-core/index.d.ts[0m:[93m164[0m:[93m5[0m
+    [7m164[0m     (path: PathParams, subApplication: Application): T;
+    [7m   [0m [96m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    The last overload is declared here.
+
+    at createTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:859:12)
+    at reportTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:863:19)
+    at getOutput (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1077:36)
+    at Object.compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1433:41)
+    at Module.m._compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1617:30)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1288:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:1104:12)
+    at Module.require (node:internal/modules/cjs/loader:1311:19)
+ [LOGGER] 2024-09-27 01:19:06.519 PM ERROR : uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/router/auth-router.ts[0m:[93m6[0m:[93m23[0m - [91merror[0m[90m TS2769: [0mNo overload matches this call.
+  The last overload gave the following error.
+    Argument of type '(req: Request, res: Response, next: NextFunction) => Promise<Response<any, Record<string, any>> | undefined>' is not assignable to parameter of type 'Application<Record<string, any>>'.
+      Type '(req: Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<...>' is missing the following properties from type 'Application<Record<string, any>>': init, defaultConfiguration, engine, set, and 63 more.
+
+[7m6[0m router.post('/login', login);
+[7m [0m [91m                      ~~~~~[0m
+
+  [96mnode_modules/@types/express-serve-static-core/index.d.ts[0m:[93m164[0m:[93m5[0m
+    [7m164[0m     (path: PathParams, subApplication: Application): T;
+    [7m   [0m [96m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    The last overload is declared here.
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/router/auth-router.ts[0m:[93m6[0m:[93m23[0m - [91merror[0m[90m TS2769: [0mNo overload matches this call.
+  The last overload gave the following error.
+    Argument of type '(req: Request, res: Response, next: NextFunction) => Promise<Response<any, Record<string, any>> | undefined>' is not assignable to parameter of type 'Application<Record<string, any>>'.
+      Type '(req: Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<...>' is missing the following properties from type 'Application<Record<string, any>>': init, defaultConfiguration, engine, set, and 63 more.
+
+[7m6[0m router.post('/login', login);
+[7m [0m [91m                      ~~~~~[0m
+
+  [96mnode_modules/@types/express-serve-static-core/index.d.ts[0m:[93m164[0m:[93m5[0m
+    [7m164[0m     (path: PathParams, subApplication: Application): T;
+    [7m   [0m [96m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    The last overload is declared here.
+
+    at createTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:859:12)
+    at reportTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:863:19)
+    at getOutput (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1077:36)
+    at Object.compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1433:41)
+    at Module.m._compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1617:30)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1288:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:1104:12)
+    at Module.require (node:internal/modules/cjs/loader:1311:19)
+ [LOGGER] 2024-09-27 01:20:32.654 PM ERROR : uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/router/auth-router.ts[0m:[93m6[0m:[93m23[0m - [91merror[0m[90m TS2769: [0mNo overload matches this call.
+  The last overload gave the following error.
+    Argument of type '(req: Request, res: Response, next: NextFunction) => Promise<Response<any, Record<string, any>> | undefined>' is not assignable to parameter of type 'Application<Record<string, any>>'.
+      Type '(req: Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<...>' is missing the following properties from type 'Application<Record<string, any>>': init, defaultConfiguration, engine, set, and 63 more.
+
+[7m6[0m router.post('/login', login);
+[7m [0m [91m                      ~~~~~[0m
+
+  [96mnode_modules/@types/express-serve-static-core/index.d.ts[0m:[93m164[0m:[93m5[0m
+    [7m164[0m     (path: PathParams, subApplication: Application): T;
+    [7m   [0m [96m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    The last overload is declared here.
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/router/auth-router.ts[0m:[93m6[0m:[93m23[0m - [91merror[0m[90m TS2769: [0mNo overload matches this call.
+  The last overload gave the following error.
+    Argument of type '(req: Request, res: Response, next: NextFunction) => Promise<Response<any, Record<string, any>> | undefined>' is not assignable to parameter of type 'Application<Record<string, any>>'.
+      Type '(req: Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<...>' is missing the following properties from type 'Application<Record<string, any>>': init, defaultConfiguration, engine, set, and 63 more.
+
+[7m6[0m router.post('/login', login);
+[7m [0m [91m                      ~~~~~[0m
+
+  [96mnode_modules/@types/express-serve-static-core/index.d.ts[0m:[93m164[0m:[93m5[0m
+    [7m164[0m     (path: PathParams, subApplication: Application): T;
+    [7m   [0m [96m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    The last overload is declared here.
+
+    at createTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:859:12)
+    at reportTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:863:19)
+    at getOutput (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1077:36)
+    at Object.compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1433:41)
+    at Module.m._compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1617:30)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1288:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:1104:12)
+    at Module.require (node:internal/modules/cjs/loader:1311:19)
+ [LOGGER] 2024-09-27 01:21:30.514 PM ERROR : uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/router/auth-router.ts[0m:[93m6[0m:[93m23[0m - [91merror[0m[90m TS2769: [0mNo overload matches this call.
+  The last overload gave the following error.
+    Argument of type '(req: Request, res: Response, next: NextFunction) => Promise<Response<any, Record<string, any>> | undefined>' is not assignable to parameter of type 'Application<Record<string, any>>'.
+      Type '(req: Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<...>' is missing the following properties from type 'Application<Record<string, any>>': init, defaultConfiguration, engine, set, and 63 more.
+
+[7m6[0m router.post('/login', login);
+[7m [0m [91m                      ~~~~~[0m
+
+  [96mnode_modules/@types/express-serve-static-core/index.d.ts[0m:[93m164[0m:[93m5[0m
+    [7m164[0m     (path: PathParams, subApplication: Application): T;
+    [7m   [0m [96m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    The last overload is declared here.
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/router/auth-router.ts[0m:[93m6[0m:[93m23[0m - [91merror[0m[90m TS2769: [0mNo overload matches this call.
+  The last overload gave the following error.
+    Argument of type '(req: Request, res: Response, next: NextFunction) => Promise<Response<any, Record<string, any>> | undefined>' is not assignable to parameter of type 'Application<Record<string, any>>'.
+      Type '(req: Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<...>' is missing the following properties from type 'Application<Record<string, any>>': init, defaultConfiguration, engine, set, and 63 more.
+
+[7m6[0m router.post('/login', login);
+[7m [0m [91m                      ~~~~~[0m
+
+  [96mnode_modules/@types/express-serve-static-core/index.d.ts[0m:[93m164[0m:[93m5[0m
+    [7m164[0m     (path: PathParams, subApplication: Application): T;
+    [7m   [0m [96m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    The last overload is declared here.
+
+    at createTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:859:12)
+    at reportTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:863:19)
+    at getOutput (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1077:36)
+    at Object.compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1433:41)
+    at Module.m._compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1617:30)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1288:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:1104:12)
+    at Module.require (node:internal/modules/cjs/loader:1311:19)
+ [LOGGER] 2024-09-27 01:22:01.787 PM ERROR : uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/controller/auth-controller.ts[0m:[93m5[0m:[93m28[0m - [91merror[0m[90m TS2307: [0mCannot find module 'src/validation/validate' or its corresponding type declarations.
+
+[7m5[0m import { validation } from 'src/validation/validate';
+[7m [0m [91m                           ~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/controller/auth-controller.ts[0m:[93m5[0m:[93m28[0m - [91merror[0m[90m TS2307: [0mCannot find module 'src/validation/validate' or its corresponding type declarations.
+
+[7m5[0m import { validation } from 'src/validation/validate';
+[7m [0m [91m                           ~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+    at createTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:859:12)
+    at reportTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:863:19)
+    at getOutput (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1077:36)
+    at Object.compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1433:41)
+    at Module.m._compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1617:30)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1288:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:1104:12)
+    at Module.require (node:internal/modules/cjs/loader:1311:19)
+ [LOGGER] 2024-09-27 01:23:07.244 PM ERROR : uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/controller/auth-controller.ts[0m:[93m11[0m:[93m37[0m - [91merror[0m[90m TS2554: [0mExpected 2 arguments, but got 1.
+
+[7m11[0m     const validateData = validation.validate(loginSchemaValidation.parse(req.body));
+[7m  [0m [91m                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96msrc/validation/validate.ts[0m:[93m4[0m:[93m39[0m
+    [7m4[0m   static validate<T>(schema: ZodType, data: T): T {
+    [7m [0m [96m                                      ~~~~~~~[0m
+    An argument for 'data' was not provided.
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/controller/auth-controller.ts[0m:[93m11[0m:[93m37[0m - [91merror[0m[90m TS2554: [0mExpected 2 arguments, but got 1.
+
+[7m11[0m     const validateData = validation.validate(loginSchemaValidation.parse(req.body));
+[7m  [0m [91m                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96msrc/validation/validate.ts[0m:[93m4[0m:[93m39[0m
+    [7m4[0m   static validate<T>(schema: ZodType, data: T): T {
+    [7m [0m [96m                                      ~~~~~~~[0m
+    An argument for 'data' was not provided.
+
+    at createTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:859:12)
+    at reportTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:863:19)
+    at getOutput (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1077:36)
+    at Object.compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1433:41)
+    at Module.m._compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1617:30)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1288:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:1104:12)
+    at Module.require (node:internal/modules/cjs/loader:1311:19)
+ [LOGGER] 2024-09-27 02:02:01.162 PM ERROR : uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/validation/validate.ts[0m:[93m1[0m:[93m31[0m - [91merror[0m[90m TS2307: [0mCannot find module 'src/error/response-error' or its corresponding type declarations.
+
+[7m1[0m import { ResponseError } from 'src/error/response-error';
+[7m [0m [91m                              ~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/validation/validate.ts[0m:[93m1[0m:[93m31[0m - [91merror[0m[90m TS2307: [0mCannot find module 'src/error/response-error' or its corresponding type declarations.
+
+[7m1[0m import { ResponseError } from 'src/error/response-error';
+[7m [0m [91m                              ~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+    at createTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:859:12)
+    at reportTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:863:19)
+    at getOutput (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1077:36)
+    at Object.compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1433:41)
+    at Module.m._compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1617:30)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1288:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:1104:12)
+    at Module.require (node:internal/modules/cjs/loader:1311:19)
+ [LOGGER] 2024-09-27 02:02:38.204 PM ERROR : uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/validation/validate.ts[0m:[93m19[0m:[93m46[0m - [91merror[0m[90m TS2345: [0mArgument of type 'Record<string, string[]>' is not assignable to parameter of type 'string'.
+
+[7m19[0m       throw new ResponseError('failed', 400, formattedErrors);
+[7m  [0m [91m                                             ~~~~~~~~~~~~~~~[0m
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/validation/validate.ts[0m:[93m19[0m:[93m46[0m - [91merror[0m[90m TS2345: [0mArgument of type 'Record<string, string[]>' is not assignable to parameter of type 'string'.
+
+[7m19[0m       throw new ResponseError('failed', 400, formattedErrors);
+[7m  [0m [91m                                             ~~~~~~~~~~~~~~~[0m
+
+    at createTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:859:12)
+    at reportTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:863:19)
+    at getOutput (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1077:36)
+    at Object.compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1433:41)
+    at Module.m._compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1617:30)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1288:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:1104:12)
+    at Module.require (node:internal/modules/cjs/loader:1311:19)
+ [LOGGER] 2024-09-27 02:12:01.259 PM ERROR : uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/controller/auth-controller.ts[0m:[93m12[0m:[93m42[0m - [91merror[0m[90m TS2339: [0mProperty 'findOne' does not exist on type 'Schema<any, Model<any, any, any, any, any, any>, {}, {}, {}, {}, DefaultSchemaOptions, { email: string; password: string; code: string; name: string; borrowedBooks: string[]; penaltyEndDate: NativeDate; }, Document<...> & ... 1 more ... & { ...; }>'.
+
+[7m12[0m     const userExist = await memberSchema.findOne({ email: validateData.email });
+[7m  [0m [91m                                         ~~~~~~~[0m
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/controller/auth-controller.ts[0m:[93m12[0m:[93m42[0m - [91merror[0m[90m TS2339: [0mProperty 'findOne' does not exist on type 'Schema<any, Model<any, any, any, any, any, any>, {}, {}, {}, {}, DefaultSchemaOptions, { email: string; password: string; code: string; name: string; borrowedBooks: string[]; penaltyEndDate: NativeDate; }, Document<...> & ... 1 more ... & { ...; }>'.
+
+[7m12[0m     const userExist = await memberSchema.findOne({ email: validateData.email });
+[7m  [0m [91m                                         ~~~~~~~[0m
+
+    at createTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:859:12)
+    at reportTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:863:19)
+    at getOutput (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1077:36)
+    at Object.compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1433:41)
+    at Module.m._compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1617:30)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1288:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:1104:12)
+    at Module.require (node:internal/modules/cjs/loader:1311:19)
+ [LOGGER] 2024-09-27 02:19:34.369 PM ERROR : uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/controller/auth-controller.ts[0m:[93m6[0m:[93m30[0m - [91merror[0m[90m TS2307: [0mCannot find module '../model/Member' or its corresponding type declarations.
+
+[7m6[0m import { memberSchema } from '../model/Member';
+[7m [0m [91m                             ~~~~~~~~~~~~~~~~~[0m
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/controller/auth-controller.ts[0m:[93m6[0m:[93m30[0m - [91merror[0m[90m TS2307: [0mCannot find module '../model/Member' or its corresponding type declarations.
+
+[7m6[0m import { memberSchema } from '../model/Member';
+[7m [0m [91m                             ~~~~~~~~~~~~~~~~~[0m
+
+    at createTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:859:12)
+    at reportTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:863:19)
+    at getOutput (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1077:36)
+    at Object.compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1433:41)
+    at Module.m._compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1617:30)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1288:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:1104:12)
+    at Module.require (node:internal/modules/cjs/loader:1311:19)
+ [LOGGER] 2024-09-27 02:19:42.859 PM ERROR : uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/controller/auth-controller.ts[0m:[93m13[0m:[93m42[0m - [91merror[0m[90m TS2339: [0mProperty 'findOne' does not exist on type 'Schema<any, Model<any, any, any, any, any, any>, {}, {}, {}, {}, DefaultSchemaOptions, { email: string; password: string; code: string; name: string; borrowedBooks: string[]; penaltyEndDate: NativeDate; }, Document<...> & ... 1 more ... & { ...; }>'.
+
+[7m13[0m     const userExist = await memberSchema.findOne({ email: validateData.email });
+[7m  [0m [91m                                         ~~~~~~~[0m
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/controller/auth-controller.ts[0m:[93m13[0m:[93m42[0m - [91merror[0m[90m TS2339: [0mProperty 'findOne' does not exist on type 'Schema<any, Model<any, any, any, any, any, any>, {}, {}, {}, {}, DefaultSchemaOptions, { email: string; password: string; code: string; name: string; borrowedBooks: string[]; penaltyEndDate: NativeDate; }, Document<...> & ... 1 more ... & { ...; }>'.
+
+[7m13[0m     const userExist = await memberSchema.findOne({ email: validateData.email });
+[7m  [0m [91m                                         ~~~~~~~[0m
+
+    at createTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:859:12)
+    at reportTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:863:19)
+    at getOutput (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1077:36)
+    at Object.compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1433:41)
+    at Module.m._compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1617:30)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1288:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:1104:12)
+    at Module.require (node:internal/modules/cjs/loader:1311:19)
+ [LOGGER] 2024-09-27 02:22:11.749 PM ERROR : uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/controller/auth-controller.ts[0m:[93m6[0m:[93m10[0m - [91merror[0m[90m TS2459: [0mModule '"../model/member-model"' declares 'memberSchema' locally, but it is not exported.
+
+[7m6[0m import { memberSchema } from '../model/member-model';
+[7m [0m [91m         ~~~~~~~~~~~~[0m
+
+  [96msrc/model/member-model.ts[0m:[93m3[0m:[93m7[0m
+    [7m3[0m const memberSchema = new mongoose.Schema({
+    [7m [0m [96m      ~~~~~~~~~~~~[0m
+    'memberSchema' is declared here.
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/controller/auth-controller.ts[0m:[93m6[0m:[93m10[0m - [91merror[0m[90m TS2459: [0mModule '"../model/member-model"' declares 'memberSchema' locally, but it is not exported.
+
+[7m6[0m import { memberSchema } from '../model/member-model';
+[7m [0m [91m         ~~~~~~~~~~~~[0m
+
+  [96msrc/model/member-model.ts[0m:[93m3[0m:[93m7[0m
+    [7m3[0m const memberSchema = new mongoose.Schema({
+    [7m [0m [96m      ~~~~~~~~~~~~[0m
+    'memberSchema' is declared here.
+
+    at createTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:859:12)
+    at reportTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:863:19)
+    at getOutput (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1077:36)
+    at Object.compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1433:41)
+    at Module.m._compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1617:30)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1288:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:1104:12)
+    at Module.require (node:internal/modules/cjs/loader:1311:19)
+ [LOGGER] 2024-09-27 02:25:36.944 PM ERROR : uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/controller/auth-controller.ts[0m:[93m27[0m:[93m23[0m - [91merror[0m[90m TS2339: [0mProperty 'role' does not exist on type 'Document<unknown, {}, { email: string; password: string; code: string; name: string; borrowedBooks: string[]; penaltyEndDate: NativeDate; }> & { email: string; password: string; code: string; name: string; borrowedBooks: string[]; penaltyEndDate: NativeDate; } & { ...; }'.
+
+[7m27[0m       role: userExist.role,
+[7m  [0m [91m                      ~~~~[0m
+[96msrc/controller/auth-controller.ts[0m:[93m39[0m:[93m5[0m - [91merror[0m[90m TS2304: [0mCannot find name 'next'.
+
+[7m39[0m     next(error);
+[7m  [0m [91m    ~~~~[0m
+[96msrc/controller/auth-controller.ts[0m:[93m31[0m:[93m5[0m - [91merror[0m[90m TS1472: [0m'catch' or 'finally' expected.
+
+[7m31[0m     logger.info('Login successfuly');
+[7m  [0m [91m    ~~~~~~[0m
+[96msrc/controller/auth-controller.ts[0m:[93m38[0m:[93m5[0m - [91merror[0m[90m TS1005: [0m',' expected.
+
+[7m38[0m   } catch (error: any) {
+[7m  [0m [91m    ~~~~~[0m
+[96msrc/controller/auth-controller.ts[0m:[93m41[0m:[93m1[0m - [91merror[0m[90m TS1128: [0mDeclaration or statement expected.
+
+[7m41[0m };
+[7m  [0m [91m~[0m
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/controller/auth-controller.ts[0m:[93m27[0m:[93m23[0m - [91merror[0m[90m TS2339: [0mProperty 'role' does not exist on type 'Document<unknown, {}, { email: string; password: string; code: string; name: string; borrowedBooks: string[]; penaltyEndDate: NativeDate; }> & { email: string; password: string; code: string; name: string; borrowedBooks: string[]; penaltyEndDate: NativeDate; } & { ...; }'.
+
+[7m27[0m       role: userExist.role,
+[7m  [0m [91m                      ~~~~[0m
+[96msrc/controller/auth-controller.ts[0m:[93m39[0m:[93m5[0m - [91merror[0m[90m TS2304: [0mCannot find name 'next'.
+
+[7m39[0m     next(error);
+[7m  [0m [91m    ~~~~[0m
+[96msrc/controller/auth-controller.ts[0m:[93m31[0m:[93m5[0m - [91merror[0m[90m TS1472: [0m'catch' or 'finally' expected.
+
+[7m31[0m     logger.info('Login successfuly');
+[7m  [0m [91m    ~~~~~~[0m
+[96msrc/controller/auth-controller.ts[0m:[93m38[0m:[93m5[0m - [91merror[0m[90m TS1005: [0m',' expected.
+
+[7m38[0m   } catch (error: any) {
+[7m  [0m [91m    ~~~~~[0m
+[96msrc/controller/auth-controller.ts[0m:[93m41[0m:[93m1[0m - [91merror[0m[90m TS1128: [0mDeclaration or statement expected.
+
+[7m41[0m };
+[7m  [0m [91m~[0m
+
+    at createTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:859:12)
+    at reportTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:863:19)
+    at getOutput (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1077:36)
+    at Object.compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1433:41)
+    at Module.m._compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1617:30)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1288:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:1104:12)
+    at Module.require (node:internal/modules/cjs/loader:1311:19)
+ [LOGGER] 2024-09-27 02:27:36.310 PM ERROR : uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/controller/auth-controller.ts[0m:[93m25[0m:[93m24[0m - [91merror[0m[90m TS2339: [0mProperty 'title' does not exist on type 'Document<unknown, {}, { email: string; password: string; code: string; name: string; borrowedBooks: string[]; penaltyEndDate: NativeDate; }> & { email: string; password: string; code: string; name: string; borrowedBooks: string[]; penaltyEndDate: NativeDate; } & { ...; }'.
+
+[7m25[0m       title: userExist.title,
+[7m  [0m [91m                       ~~~~~[0m
+[96msrc/controller/auth-controller.ts[0m:[93m26[0m:[93m25[0m - [91merror[0m[90m TS2339: [0mProperty 'author' does not exist on type 'Document<unknown, {}, { email: string; password: string; code: string; name: string; borrowedBooks: string[]; penaltyEndDate: NativeDate; }> & { email: string; password: string; code: string; name: string; borrowedBooks: string[]; penaltyEndDate: NativeDate; } & { ...; }'.
+
+[7m26[0m       author: userExist.author,
+[7m  [0m [91m                        ~~~~~~[0m
+[96msrc/controller/auth-controller.ts[0m:[93m27[0m:[93m24[0m - [91merror[0m[90m TS2339: [0mProperty 'stock' does not exist on type 'Document<unknown, {}, { email: string; password: string; code: string; name: string; borrowedBooks: string[]; penaltyEndDate: NativeDate; }> & { email: string; password: string; code: string; name: string; borrowedBooks: string[]; penaltyEndDate: NativeDate; } & { ...; }'.
+
+[7m27[0m       stock: userExist.stock,
+[7m  [0m [91m                       ~~~~~[0m
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/controller/auth-controller.ts[0m:[93m25[0m:[93m24[0m - [91merror[0m[90m TS2339: [0mProperty 'title' does not exist on type 'Document<unknown, {}, { email: string; password: string; code: string; name: string; borrowedBooks: string[]; penaltyEndDate: NativeDate; }> & { email: string; password: string; code: string; name: string; borrowedBooks: string[]; penaltyEndDate: NativeDate; } & { ...; }'.
+
+[7m25[0m       title: userExist.title,
+[7m  [0m [91m                       ~~~~~[0m
+[96msrc/controller/auth-controller.ts[0m:[93m26[0m:[93m25[0m - [91merror[0m[90m TS2339: [0mProperty 'author' does not exist on type 'Document<unknown, {}, { email: string; password: string; code: string; name: string; borrowedBooks: string[]; penaltyEndDate: NativeDate; }> & { email: string; password: string; code: string; name: string; borrowedBooks: string[]; penaltyEndDate: NativeDate; } & { ...; }'.
+
+[7m26[0m       author: userExist.author,
+[7m  [0m [91m                        ~~~~~~[0m
+[96msrc/controller/auth-controller.ts[0m:[93m27[0m:[93m24[0m - [91merror[0m[90m TS2339: [0mProperty 'stock' does not exist on type 'Document<unknown, {}, { email: string; password: string; code: string; name: string; borrowedBooks: string[]; penaltyEndDate: NativeDate; }> & { email: string; password: string; code: string; name: string; borrowedBooks: string[]; penaltyEndDate: NativeDate; } & { ...; }'.
+
+[7m27[0m       stock: userExist.stock,
+[7m  [0m [91m                       ~~~~~[0m
+
+    at createTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:859:12)
+    at reportTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:863:19)
+    at getOutput (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1077:36)
+    at Object.compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1433:41)
+    at Module.m._compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1617:30)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1288:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:1104:12)
+    at Module.require (node:internal/modules/cjs/loader:1311:19)
+ [LOGGER] 2024-09-27 02:32:10.857 PM ERROR : uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/controller/auth-controller.ts[0m:[93m29[0m:[93m19[0m - [91merror[0m[90m TS2304: [0mCannot find name 'jsonwebtoken'.
+
+[7m29[0m     const token = jsonwebtoken.sign(member, process.env.JWT_SECRET as string, {
+[7m  [0m [91m                  ~~~~~~~~~~~~[0m
+[96msrc/controller/auth-controller.ts[0m:[93m33[0m:[93m5[0m - [91merror[0m[90m TS1005: [0m',' expected.
+
+[7m33[0m     logger.info('Login successfuly');
+[7m  [0m [91m    ~~~~~~[0m
+[96msrc/controller/auth-controller.ts[0m:[93m33[0m:[93m37[0m - [91merror[0m[90m TS1005: [0m')' expected.
+
+[7m33[0m     logger.info('Login successfuly');
+[7m  [0m [91m                                    ~[0m
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/controller/auth-controller.ts[0m:[93m29[0m:[93m19[0m - [91merror[0m[90m TS2304: [0mCannot find name 'jsonwebtoken'.
+
+[7m29[0m     const token = jsonwebtoken.sign(member, process.env.JWT_SECRET as string, {
+[7m  [0m [91m                  ~~~~~~~~~~~~[0m
+[96msrc/controller/auth-controller.ts[0m:[93m33[0m:[93m5[0m - [91merror[0m[90m TS1005: [0m',' expected.
+
+[7m33[0m     logger.info('Login successfuly');
+[7m  [0m [91m    ~~~~~~[0m
+[96msrc/controller/auth-controller.ts[0m:[93m33[0m:[93m37[0m - [91merror[0m[90m TS1005: [0m')' expected.
+
+[7m33[0m     logger.info('Login successfuly');
+[7m  [0m [91m                                    ~[0m
+
+    at createTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:859:12)
+    at reportTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:863:19)
+    at getOutput (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1077:36)
+    at Object.compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1433:41)
+    at Module.m._compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1617:30)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1288:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:1104:12)
+    at Module.require (node:internal/modules/cjs/loader:1311:19)
+ [LOGGER] 2024-09-27 02:32:28.184 PM ERROR : uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/controller/auth-controller.ts[0m:[93m8[0m:[93m26[0m - [91merror[0m[90m TS7016: [0mCould not find a declaration file for module 'jsonwebtoken'. 'D:/wa/Backend-Test-Case/node_modules/jsonwebtoken/index.js' implicitly has an 'any' type.
+  Try `npm i --save-dev @types/jsonwebtoken` if it exists or add a new declaration (.d.ts) file containing `declare module 'jsonwebtoken';`
+
+[7m8[0m import jsonwebtoken from 'jsonwebtoken';
+[7m [0m [91m                         ~~~~~~~~~~~~~~[0m
+[96msrc/controller/auth-controller.ts[0m:[93m34[0m:[93m5[0m - [91merror[0m[90m TS1005: [0m',' expected.
+
+[7m34[0m     logger.info('Login successfuly');
+[7m  [0m [91m    ~~~~~~[0m
+[96msrc/controller/auth-controller.ts[0m:[93m34[0m:[93m37[0m - [91merror[0m[90m TS1005: [0m')' expected.
+
+[7m34[0m     logger.info('Login successfuly');
+[7m  [0m [91m                                    ~[0m
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/controller/auth-controller.ts[0m:[93m8[0m:[93m26[0m - [91merror[0m[90m TS7016: [0mCould not find a declaration file for module 'jsonwebtoken'. 'D:/wa/Backend-Test-Case/node_modules/jsonwebtoken/index.js' implicitly has an 'any' type.
+  Try `npm i --save-dev @types/jsonwebtoken` if it exists or add a new declaration (.d.ts) file containing `declare module 'jsonwebtoken';`
+
+[7m8[0m import jsonwebtoken from 'jsonwebtoken';
+[7m [0m [91m                         ~~~~~~~~~~~~~~[0m
+[96msrc/controller/auth-controller.ts[0m:[93m34[0m:[93m5[0m - [91merror[0m[90m TS1005: [0m',' expected.
+
+[7m34[0m     logger.info('Login successfuly');
+[7m  [0m [91m    ~~~~~~[0m
+[96msrc/controller/auth-controller.ts[0m:[93m34[0m:[93m37[0m - [91merror[0m[90m TS1005: [0m')' expected.
+
+[7m34[0m     logger.info('Login successfuly');
+[7m  [0m [91m                                    ~[0m
+
+    at createTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:859:12)
+    at reportTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:863:19)
+    at getOutput (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1077:36)
+    at Object.compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1433:41)
+    at Module.m._compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1617:30)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1288:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:1104:12)
+    at Module.require (node:internal/modules/cjs/loader:1311:19)
+ [LOGGER] 2024-09-27 02:34:16.099 PM ERROR : uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/controller/auth-controller.ts[0m:[93m9[0m:[93m14[0m - [91merror[0m[90m TS1005: [0m'=' expected.
+
+[7m9[0m import dotenv/config
+[7m [0m [91m             ~[0m
+[96msrc/controller/auth-controller.ts[0m:[93m9[0m:[93m15[0m - [91merror[0m[90m TS1161: [0mUnterminated regular expression literal.
+
+[7m9[0m import dotenv/config
+[7m [0m [91m              [0m
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/controller/auth-controller.ts[0m:[93m9[0m:[93m14[0m - [91merror[0m[90m TS1005: [0m'=' expected.
+
+[7m9[0m import dotenv/config
+[7m [0m [91m             ~[0m
+[96msrc/controller/auth-controller.ts[0m:[93m9[0m:[93m15[0m - [91merror[0m[90m TS1161: [0mUnterminated regular expression literal.
+
+[7m9[0m import dotenv/config
+[7m [0m [91m              [0m
+
+    at createTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:859:12)
+    at reportTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:863:19)
+    at getOutput (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1077:36)
+    at Object.compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1433:41)
+    at Module.m._compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1617:30)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1288:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:1104:12)
+    at Module.require (node:internal/modules/cjs/loader:1311:19)
+ [LOGGER] 2024-09-27 02:55:55.681 PM ERROR : uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/controller/auth-controller.ts[0m:[93m46[0m:[93m5[0m - [91merror[0m[90m TS2304: [0mCannot find name 'f'.
+
+[7m46[0m     f (error instanceof ResponseError) {
+[7m  [0m [91m    ~[0m
+[96msrc/controller/auth-controller.ts[0m:[93m47[0m:[93m23[0m - [91merror[0m[90m TS18046: [0m'error' is of type 'unknown'.
+
+[7m47[0m       logger.error(`${error.statusCode}: ${error.message}`);
+[7m  [0m [91m                      ~~~~~[0m
+[96msrc/controller/auth-controller.ts[0m:[93m47[0m:[93m44[0m - [91merror[0m[90m TS18046: [0m'error' is of type 'unknown'.
+
+[7m47[0m       logger.error(`${error.statusCode}: ${error.message}`);
+[7m  [0m [91m                                           ~~~~~[0m
+[96msrc/controller/auth-controller.ts[0m:[93m46[0m:[93m40[0m - [91merror[0m[90m TS1005: [0m';' expected.
+
+[7m46[0m     f (error instanceof ResponseError) {
+[7m  [0m [91m                                       ~[0m
+[96msrc/controller/auth-controller.ts[0m:[93m48[0m:[93m7[0m - [91merror[0m[90m TS1128: [0mDeclaration or statement expected.
+
+[7m48[0m     } else if (error instanceof Error) {
+[7m  [0m [91m      ~~~~[0m
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/controller/auth-controller.ts[0m:[93m46[0m:[93m5[0m - [91merror[0m[90m TS2304: [0mCannot find name 'f'.
+
+[7m46[0m     f (error instanceof ResponseError) {
+[7m  [0m [91m    ~[0m
+[96msrc/controller/auth-controller.ts[0m:[93m47[0m:[93m23[0m - [91merror[0m[90m TS18046: [0m'error' is of type 'unknown'.
+
+[7m47[0m       logger.error(`${error.statusCode}: ${error.message}`);
+[7m  [0m [91m                      ~~~~~[0m
+[96msrc/controller/auth-controller.ts[0m:[93m47[0m:[93m44[0m - [91merror[0m[90m TS18046: [0m'error' is of type 'unknown'.
+
+[7m47[0m       logger.error(`${error.statusCode}: ${error.message}`);
+[7m  [0m [91m                                           ~~~~~[0m
+[96msrc/controller/auth-controller.ts[0m:[93m46[0m:[93m40[0m - [91merror[0m[90m TS1005: [0m';' expected.
+
+[7m46[0m     f (error instanceof ResponseError) {
+[7m  [0m [91m                                       ~[0m
+[96msrc/controller/auth-controller.ts[0m:[93m48[0m:[93m7[0m - [91merror[0m[90m TS1128: [0mDeclaration or statement expected.
+
+[7m48[0m     } else if (error instanceof Error) {
+[7m  [0m [91m      ~~~~[0m
+
+    at createTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:859:12)
+    at reportTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:863:19)
+    at getOutput (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1077:36)
+    at Object.compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1433:41)
+    at Module.m._compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1617:30)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1288:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:1104:12)
+    at Module.require (node:internal/modules/cjs/loader:1311:19)
+ [LOGGER] 2024-09-27 02:56:43.218 PM ERROR : 401: Email or Password is wrong
+ [LOGGER] 2024-09-27 02:56:54.747 PM ERROR : 400: [object Object]
+ [LOGGER] 2024-09-27 02:57:02.093 PM ERROR : 400: [object Object]
+ [LOGGER] 2024-09-27 02:57:07.173 PM ERROR : 401: Email or Password is wrong
+ [LOGGER] 2024-09-27 03:04:39.210 PM ERROR : uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/router/auth-router.ts[0m:[93m1[0m:[93m10[0m - [91merror[0m[90m TS2305: [0mModule '"../controller/auth-controller"' has no exported member 'login'.
+
+[7m1[0m import { login } from '../controller/auth-controller';
+[7m [0m [91m         ~~~~~[0m
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/router/auth-router.ts[0m:[93m1[0m:[93m10[0m - [91merror[0m[90m TS2305: [0mModule '"../controller/auth-controller"' has no exported member 'login'.
+
+[7m1[0m import { login } from '../controller/auth-controller';
+[7m [0m [91m         ~~~~~[0m
+
+    at createTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:859:12)
+    at reportTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:863:19)
+    at getOutput (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1077:36)
+    at Object.compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1433:41)
+    at Module.m._compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1617:30)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1288:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:1104:12)
+    at Module.require (node:internal/modules/cjs/loader:1311:19)
+ [LOGGER] 2024-09-27 03:13:20.801 PM ERROR : uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/controller/auth-controller.ts[0m:[93m29[0m:[93m5[0m - [91merror[0m[90m TS2304: [0mCannot find name 'next'.
+
+[7m29[0m     next(error);
+[7m  [0m [91m    ~~~~[0m
+[96msrc/controller/auth-controller.ts[0m:[93m21[0m:[93m3[0m - [91merror[0m[90m TS1472: [0m'catch' or 'finally' expected.
+
+[7m21[0m   } catch (error: unknown) {
+[7m  [0m [91m  ~[0m
+[96msrc/controller/auth-controller.ts[0m:[93m21[0m:[93m5[0m - [91merror[0m[90m TS1005: [0m',' expected.
+
+[7m21[0m   } catch (error: unknown) {
+[7m  [0m [91m    ~~~~~[0m
+[96msrc/controller/auth-controller.ts[0m:[93m31[0m:[93m1[0m - [91merror[0m[90m TS1128: [0mDeclaration or statement expected.
+
+[7m31[0m };
+[7m  [0m [91m~[0m
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/controller/auth-controller.ts[0m:[93m29[0m:[93m5[0m - [91merror[0m[90m TS2304: [0mCannot find name 'next'.
+
+[7m29[0m     next(error);
+[7m  [0m [91m    ~~~~[0m
+[96msrc/controller/auth-controller.ts[0m:[93m21[0m:[93m3[0m - [91merror[0m[90m TS1472: [0m'catch' or 'finally' expected.
+
+[7m21[0m   } catch (error: unknown) {
+[7m  [0m [91m  ~[0m
+[96msrc/controller/auth-controller.ts[0m:[93m21[0m:[93m5[0m - [91merror[0m[90m TS1005: [0m',' expected.
+
+[7m21[0m   } catch (error: unknown) {
+[7m  [0m [91m    ~~~~~[0m
+[96msrc/controller/auth-controller.ts[0m:[93m31[0m:[93m1[0m - [91merror[0m[90m TS1128: [0mDeclaration or statement expected.
+
+[7m31[0m };
+[7m  [0m [91m~[0m
+
+    at createTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:859:12)
+    at reportTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:863:19)
+    at getOutput (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1077:36)
+    at Object.compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1433:41)
+    at Module.m._compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1617:30)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1288:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:1104:12)
+    at Module.require (node:internal/modules/cjs/loader:1311:19)
+ [LOGGER] 2024-09-27 03:14:03.344 PM ERROR : uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/controller/auth-controller.ts[0m:[93m21[0m:[93m34[0m - [91merror[0m[90m TS2304: [0mCannot find name 'hash'.
+
+[7m21[0m     const hashedPassword = await hash(validateData.password, 10);
+[7m  [0m [91m                                 ~~~~[0m
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/controller/auth-controller.ts[0m:[93m21[0m:[93m34[0m - [91merror[0m[90m TS2304: [0mCannot find name 'hash'.
+
+[7m21[0m     const hashedPassword = await hash(validateData.password, 10);
+[7m  [0m [91m                                 ~~~~[0m
+
+    at createTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:859:12)
+    at reportTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:863:19)
+    at getOutput (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1077:36)
+    at Object.compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1433:41)
+    at Module.m._compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1617:30)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1288:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:1104:12)
+    at Module.require (node:internal/modules/cjs/loader:1311:19)
+ [LOGGER] 2024-09-27 03:27:56.996 PM ERROR : uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/controller/auth-controller.ts[0m:[93m10[0m:[93m36[0m - [91merror[0m[90m TS2307: [0mCannot find module 'src/utils/member-code-generator' or its corresponding type declarations.
+
+[7m10[0m import { generateMemberCode } from 'src/utils/member-code-generator';
+[7m  [0m [91m                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/controller/auth-controller.ts[0m:[93m10[0m:[93m36[0m - [91merror[0m[90m TS2307: [0mCannot find module 'src/utils/member-code-generator' or its corresponding type declarations.
+
+[7m10[0m import { generateMemberCode } from 'src/utils/member-code-generator';
+[7m  [0m [91m                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+    at createTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:859:12)
+    at reportTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:863:19)
+    at getOutput (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1077:36)
+    at Object.compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1433:41)
+    at Module.m._compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1617:30)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1288:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:1104:12)
+    at Module.require (node:internal/modules/cjs/loader:1311:19)
+ [LOGGER] 2024-09-27 03:28:12.545 PM ERROR : uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/controller/auth-controller.ts[0m:[93m10[0m:[93m36[0m - [91merror[0m[90m TS2307: [0mCannot find module 'src/utils/member-code-generator' or its corresponding type declarations.
+
+[7m10[0m import { generateMemberCode } from 'src/utils/member-code-generator';
+[7m  [0m [91m                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/controller/auth-controller.ts[0m:[93m10[0m:[93m36[0m - [91merror[0m[90m TS2307: [0mCannot find module 'src/utils/member-code-generator' or its corresponding type declarations.
+
+[7m10[0m import { generateMemberCode } from 'src/utils/member-code-generator';
+[7m  [0m [91m                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+    at createTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:859:12)
+    at reportTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:863:19)
+    at getOutput (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1077:36)
+    at Object.compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1433:41)
+    at Module.m._compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1617:30)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1288:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:1104:12)
+    at Module.require (node:internal/modules/cjs/loader:1311:19)
+ [LOGGER] 2024-09-27 03:33:15.696 PM ERROR : 400: [object Object]
+ [LOGGER] 2024-09-27 03:33:26.385 PM ERROR : 400: [object Object]
+ [LOGGER] 2024-09-27 03:33:42.730 PM ERROR : 400: [object Object]
+ [LOGGER] 2024-09-27 03:33:48.572 PM ERROR : 400: [object Object]
+ [LOGGER] 2024-09-27 03:33:59.820 PM ERROR : Member validation failed: token: Path `token` is required.
+ [LOGGER] 2024-09-27 03:35:12.015 PM ERROR : 409: Email already exist
