@@ -5,7 +5,7 @@ import './utils/connectDB';
 import router from './router/index';
 
 const app: Application = express();
-const port: Number = 3000;
+const port: Number = 9000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

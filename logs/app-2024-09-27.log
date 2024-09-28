@@ -2052,3 +2052,61 @@ TSError: ⨯ Unable to compile TypeScript:
  [LOGGER] 2024-09-27 03:33:48.572 PM ERROR : 400: [object Object]
  [LOGGER] 2024-09-27 03:33:59.820 PM ERROR : Member validation failed: token: Path `token` is required.
  [LOGGER] 2024-09-27 03:35:12.015 PM ERROR : 409: Email already exist
+ [LOGGER] 2024-09-27 11:40:40.475 PM ERROR : uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/utils/member-code-generator.ts[0m:[93m1[0m:[93m10[0m - [91merror[0m[90m TS2614: [0mModule '"../model/member-model"' has no exported member 'MemberModel'. Did you mean to use 'import MemberModel from "../model/member-model"' instead?
+
+[7m1[0m import { MemberModel } from '../model/member-model';
+[7m [0m [91m         ~~~~~~~~~~~[0m
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/utils/member-code-generator.ts[0m:[93m1[0m:[93m10[0m - [91merror[0m[90m TS2614: [0mModule '"../model/member-model"' has no exported member 'MemberModel'. Did you mean to use 'import MemberModel from "../model/member-model"' instead?
+
+[7m1[0m import { MemberModel } from '../model/member-model';
+[7m [0m [91m         ~~~~~~~~~~~[0m
+
+    at createTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:859:12)
+    at reportTSError (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:863:19)
+    at getOutput (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1077:36)
+    at Object.compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1433:41)
+    at Module.m._compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1617:30)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1288:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:1104:12)
+    at Module.require (node:internal/modules/cjs/loader:1311:19)
+ [LOGGER] 2024-09-27 11:41:23.693 PM ERROR : uncaughtException: listen EADDRINUSE: address already in use :::3000
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1904:16)
+    at listenInCluster (node:net:1961:12)
+    at Server.listen (node:net:2063:7)
+    at Function.listen (D:\wa\Backend-Test-Case\node_modules\express\lib\application.js:635:24)
+    at Object.<anonymous> (D:\wa\Backend-Test-Case\src\index.ts:19:5)
+    at Module._compile (node:internal/modules/cjs/loader:1469:14)
+    at Module.m._compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1618:23)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1288:32)
+ [LOGGER] 2024-09-27 11:41:58.658 PM ERROR : uncaughtException: listen EADDRINUSE: address already in use :::3000
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1904:16)
+    at listenInCluster (node:net:1961:12)
+    at Server.listen (node:net:2063:7)
+    at Function.listen (D:\wa\Backend-Test-Case\node_modules\express\lib\application.js:635:24)
+    at Object.<anonymous> (D:\wa\Backend-Test-Case\src\index.ts:19:5)
+    at Module._compile (node:internal/modules/cjs/loader:1469:14)
+    at Module.m._compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1618:23)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1288:32)
+ [LOGGER] 2024-09-27 11:42:30.272 PM ERROR : uncaughtException: listen EADDRINUSE: address already in use :::3000
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1904:16)
+    at listenInCluster (node:net:1961:12)
+    at Server.listen (node:net:2063:7)
+    at Function.listen (D:\wa\Backend-Test-Case\node_modules\express\lib\application.js:635:24)
+    at Object.<anonymous> (D:\wa\Backend-Test-Case\src\index.ts:19:5)
+    at Module._compile (node:internal/modules/cjs/loader:1469:14)
+    at Module.m._compile (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1618:23)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\wa\Backend-Test-Case\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1288:32)

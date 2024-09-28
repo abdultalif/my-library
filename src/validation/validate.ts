@@ -6,7 +6,6 @@ export class validation {
     const result = schema.safeParse(data);
 
     if (!result.success) {
-      // Membuat format error yang kamu inginkan
       const formattedErrors: Record<string, string[]> = {};
       result.error.errors.forEach((err) => {
         const field = err.path[0] as string;

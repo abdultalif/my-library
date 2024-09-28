@@ -1,13 +1,16 @@
-import mongoose from 'mongoose';
+import { Schema, model } from 'mongoose';
+import { IBorrowedBook, IMember } from '../types/members';
 
-const memberSchema = new mongoose.Schema({
-  code: { type: String, required: true, unique: true },
-  name: { type: String, required: true },
-  email: { type: String, required: true, unique: true },
-  password: { type: String, required: true },
-  token: { type: String, default: null },
-  borrowedBooks: [{ type: String }],
-  penaltyEndDate: { type: Date, default: null },
+const BorrowedBookSchema = new Schema<IBorrowedBook>({
+  bookCode: { type: String, required: true },
+  borrowedAt: { type: Date, default: Date.now },
 });
 
-export const MemberModel = mongoose.model('Member', memberSchema);
+const MemberSchema = new Schema<IMember>({
+  code: { type: String, required: true, unique: true },
+  name: { type: String, required: true },
+  borrowedBooks: [BorrowedBookSchema],
+  penaltyUntil: { type: Date, default: null },
+});
+
+export const Member = model<IMember>('Member', MemberSchema);
