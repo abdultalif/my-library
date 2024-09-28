@@ -6,7 +6,7 @@ import router from './router/index';
 import swaggerUi from 'swagger-ui-express';
 import * as swaggerDocument from '../docs/swagger.json';
 
-const app: Application = express();
+export const app: Application = express();
 const port: Number = 9000;
 
 app.use(express.json());
@@ -19,6 +19,8 @@ app.get('/', (req: Request, res: Response) => {
   res.status(200).json({ sayhello: 'Hello World!' });
 });
 
-app.listen(port, () => {
-  logger.info(`Backend listening at http://localhost:${port}`);
-});
+if (process.env.NODE_ENV !== 'test') {
+  app.listen(port, () => {
+    logger.info(`Backend listening at http://localhost:${port}`);
+  });
+}

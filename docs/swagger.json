@@ -1,9 +1,9 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "Grocery Delivery APP - RESTful API Documentation",
+    "title": "Technical Backend Test - RESTful API Documentation",
     "version": "1.0.0",
-    "description": "Halaman ini untuk mendokumentasi RESTful API dari aplikasi Grocery Delivery APP"
+    "description": "Halaman ini untuk mendokumentasi RESTful API dari Peminjaman Buku APP"
   },
   "tags": [
     {

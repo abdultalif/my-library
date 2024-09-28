@@ -16,6 +16,16 @@ export default [
       sourceType: 'module',
       globals: {
         console: 'readonly',
+        describe: 'readonly',
+        test: 'readonly',
+        expect: 'readonly',
+        jest: 'readonly',
+        beforeEach: 'readonly',
+        afterEach: 'readonly',
+        beforeAll: 'readonly',
+        afterAll: 'readonly',
+        it: 'readonly',
+        process: 'readonly',
       },
     },
     plugins: {

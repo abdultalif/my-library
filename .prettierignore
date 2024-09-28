@@ -11,3 +11,4 @@ public
 node_modules
 vercel.json
 logs
+babel.config.json
