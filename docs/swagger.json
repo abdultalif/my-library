@@ -1,0 +1,525 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Grocery Delivery APP - RESTful API Documentation",
+    "version": "1.0.0",
+    "description": "Halaman ini untuk mendokumentasi RESTful API dari aplikasi Grocery Delivery APP"
+  },
+  "tags": [
+    {
+      "name": "Members",
+      "description": "API ini untuk mengelola member resources"
+    },
+    {
+      "name": "Books",
+      "description": "API ini untuk mengelola buku resources"
+    }
+  ],
+  "servers": [
+    {
+      "url": "http://localhost:9000"
+    }
+  ],
+  "paths": {
+    "/api/borrow": {
+      "post": {
+        "tags": ["Members"],
+        "summary": "REST API untuk meminjam buku",
+        "description": "API ini digunakan ketika member ingin login meminjam buku",
+        "requestBody": {
+          "description": "request body ini digunakan ketika member meminjam buku",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "memberCode": {
+                    "type": "string",
+                    "description": "Member Code",
+                    "example": "M002"
+                  },
+                  "bookCodes": {
+                    "type": "string",
+                    "description": "Book Codes",
+                    "example": ["B001", "B002"]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Success"
+                    },
+                    "statusCode": {
+                      "type": "number",
+                      "example": 200
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Books borrowed successfully"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Failed"
+                    },
+                    "statusCode": {
+                      "type": "number",
+                      "example": 403
+                    },
+                    "errors": {
+                      "anyOf": [
+                        {
+                          "type": "string",
+                          "example": "Member is penalized"
+                        },
+                        {
+                          "type": "string",
+                          "example": "Member cannot borrow more than 2 books in total"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Failed"
+                    },
+                    "statusCode": {
+                      "type": "number",
+                      "example": 404
+                    },
+                    "errors": {
+                      "anyOf": [
+                        {
+                          "type": "string",
+                          "example": "Member not found"
+                        },
+                        {
+                          "type": "string",
+                          "example": "Book with code ${bookCode} not found"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Failed"
+                    },
+                    "statusCode": {
+                      "type": "number",
+                      "example": 400
+                    },
+                    "errors": {
+                      "anyOf": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "memberCode": {
+                              "type": "string",
+                              "example": ["Member code is required."]
+                            },
+                            "bookCodes": {
+                              "type": "string",
+                              "example": ["Expected array, received string"]
+                            }
+                          }
+                        },
+                        {
+                          "type": "string",
+                          "example": "Book with code ${bookCode} is out of stock"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Failed"
+                    },
+                    "statusCode": {
+                      "type": "number",
+                      "example": 500
+                    },
+                    "errors": {
+                      "type": "string",
+                      "example": "Internal Server Error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/return": {
+      "post": {
+        "tags": ["Members"],
+        "summary": "API untuk Memengembalikan buku",
+        "description": "API ini digunakan ketika member ingin mengembalikan buku",
+        "requestBody": {
+          "description": "request body untuk mengembalikan buku",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "memberCode": {
+                    "type": "string",
+                    "description": "Member Code",
+                    "example": "M002"
+                  },
+                  "bookCodes": {
+                    "type": "string",
+                    "description": "Book Codes",
+                    "example": ["B001", "B002"]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Success"
+                    },
+                    "statusCode": {
+                      "type": "number",
+                      "example": 200
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Books returned successfully"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Failed"
+                    },
+                    "statusCode": {
+                      "type": "number",
+                      "example": 400
+                    },
+                    "errors": {
+                      "anyOf": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "memberCode": {
+                              "type": "string",
+                              "example": ["Member code is required."]
+                            },
+                            "bookCodes": {
+                              "type": "string",
+                              "example": ["Expected array, received string"]
+                            }
+                          }
+                        },
+                        {
+                          "type": "string",
+                          "example": "Book with code ${bookCode} was not borrowed by this member"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Failed"
+                    },
+                    "statusCode": {
+                      "type": "number",
+                      "example": 404
+                    },
+                    "errors": {
+                      "anyOf": [
+                        {
+                          "type": "string",
+                          "example": "Member not found"
+                        },
+                        {
+                          "type": "string",
+                          "example": "Book with code ${bookCode} not found"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Failed"
+                    },
+                    "statusCode": {
+                      "type": "number",
+                      "example": 500
+                    },
+                    "errors": {
+                      "type": "string",
+                      "example": "Internal Server Error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/members": {
+      "get": {
+        "tags": ["Members"],
+        "summary": "API untuk menampilkan Data Member",
+        "description": "API ini digunakan untuk menampilkan semua data member",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Success"
+                    },
+                    "statusCode": {
+                      "type": "number",
+                      "example": 200
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Members checked successfully"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "_id": {
+                          "type": "string",
+                          "example": "66f7c3f73e9841bfc42a5701"
+                        },
+                        "code": {
+                          "type": "string",
+                          "example": "M001"
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "Talif"
+                        },
+                        "borrowedBooks": {
+                          "type": "string",
+                          "example": []
+                        },
+                        "penaltyUntil": {
+                          "type": "string",
+                          "example": null
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Failed"
+                    },
+                    "statusCode": {
+                      "type": "number",
+                      "example": 404
+                    },
+                    "errors": {
+                      "type": "object",
+                      "example": "Members Not Found"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/books": {
+      "get": {
+        "tags": ["Books"],
+        "summary": "API untuk menampilkan Data Buku",
+        "description": "API ini digunakan untuk menampilkan semua data buku",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Success"
+                    },
+                    "statusCode": {
+                      "type": "number",
+                      "example": 200
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Books checked successfully"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "_id": {
+                          "type": "string",
+                          "example": "66f7c3e3c322841a8fe905f7"
+                        },
+                        "code": {
+                          "type": "string",
+                          "example": "B001"
+                        },
+                        "title": {
+                          "type": "string",
+                          "example": "One Piece"
+                        },
+                        "author": {
+                          "type": "string",
+                          "example": "Eichiro Oda"
+                        },
+                        "stock": {
+                          "type": "number",
+                          "example": 4
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Failed"
+                    },
+                    "statusCode": {
+                      "type": "number",
+                      "example": 404
+                    },
+                    "errors": {
+                      "type": "object",
+                      "example": "Books Not Found"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

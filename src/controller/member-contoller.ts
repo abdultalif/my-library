@@ -109,6 +109,9 @@ export const returnBook = async (req: Request, res: Response, next: NextFunction
 export const checkMembers = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const members = await Member.find().populate('borrowedBooks');
+
+    if (members.length === 0) throw new ResponseError('Failed', 404, 'Members not found');
+
     res.status(200).json({
       status: 'success',
       statusCode: 200,

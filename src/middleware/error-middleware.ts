@@ -19,6 +19,8 @@ const errorMiddleware = async (err: Error, req: Request, res: Response, next: Ne
     res
       .status(500)
       .json({
+        status: 'failed',
+        statusCode: 500,
         errors: err.message,
       })
       .end();
