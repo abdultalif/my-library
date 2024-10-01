@@ -7,6 +7,10 @@
   },
   "tags": [
     {
+      "name": "Auth",
+      "description": "API ini digunakan untuk mengelola autentikasi member"
+    },
+    {
       "name": "Members",
       "description": "API ini untuk mengelola member resources"
     },
@@ -21,6 +25,567 @@
     }
   ],
   "paths": {
+    "/api/v1/auth": {
+      "post": {
+        "tags": ["Auth"],
+        "summary": "REST API untuk register member",
+        "description": "API ini digunakan ketika ingin mendaftar akun",
+        "requestBody": {
+          "description": "request body ini digunakan ketika ingin mendaftar akun",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "description": "email",
+                    "example": "abdultalif75@gmail.com"
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "name",
+                    "example": "Abdul Talif"
+                  },
+                  "password": {
+                    "type": "string",
+                    "description": "name",
+                    "example": "Talif123!"
+                  },
+                  "confirmPassword": {
+                    "type": "string",
+                    "description": "name",
+                    "example": "Talif123!"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Success"
+                    },
+                    "statusCode": {
+                      "type": "number",
+                      "example": 201
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Register successfuly, Please check your email"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "_id": {
+                          "type": "string",
+                          "example": "66fbb7774bc9d0e051f5dad6"
+                        },
+                        "email": {
+                          "type": "string",
+                          "example": "abdultalif75@gmail.com"
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "Abdul Talif"
+                        },
+                        "isAdmin": {
+                          "type": "boolean",
+                          "example": false
+                        },
+                        "isActice": {
+                          "type": "boolean",
+                          "example": false
+                        },
+                        "tokenResetPassword": {
+                          "type": "string",
+                          "example": null
+                        },
+                        "expireTime": {
+                          "type": "datetime",
+                          "example": "2024-05-15T15:32:07.000Z"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Failed"
+                    },
+                    "statusCode": {
+                      "type": "number",
+                      "example": 400
+                    },
+                    "errors": {
+                      "type": "object",
+                      "properties": {
+                        "email": {
+                          "type": "string",
+                          "example": ["Email is required."]
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": ["Name is required."]
+                        },
+                        "password": {
+                          "type": "string",
+                          "example": ["String must contain at least 8 character."]
+                        },
+                        "confirmPassword": {
+                          "type": "string",
+                          "example": ["Password and Confirm Password must be the same."]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Failed"
+                    },
+                    "statusCode": {
+                      "type": "number",
+                      "example": 409
+                    },
+                    "errors": {
+                      "type": "string",
+                      "example": "Email already exist"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Failed"
+                    },
+                    "statusCode": {
+                      "type": "number",
+                      "example": 500
+                    },
+                    "errors": {
+                      "type": "string",
+                      "example": "Internal Server Error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/api/v1/auth/set-active/{email}/{memberId}": {
+      "get": {
+        "tags": ["Auth"],
+        "summary": "REST API untuk aktifasi akun member",
+        "description": "API ini digunakan ketika ingin aktifasi akun member",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Success"
+                    },
+                    "statusCode": {
+                      "type": "number",
+                      "example": 200
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Member activated successfully"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Failed"
+                    },
+                    "statusCode": {
+                      "type": "number",
+                      "example": 400
+                    },
+                    "errors": {
+                      "type": "string",
+                      "example": "Member not found"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Failed"
+                    },
+                    "statusCode": {
+                      "type": "number",
+                      "example": 500
+                    },
+                    "errors": {
+                      "type": "string",
+                      "example": "Internal Server Error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/api/v1/auth/login": {
+      "post": {
+        "tags": ["Auth"],
+        "summary": "REST API untuk Login member",
+        "description": "API ini digunakan ketika ingin login",
+        "requestBody": {
+          "description": "request body ini digunakan ketika ingin login akun",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "description": "email",
+                    "example": "abdultalif75@gmail.com"
+                  },
+                  "password": {
+                    "type": "string",
+                    "description": "name",
+                    "example": "Talif123!"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Success"
+                    },
+                    "statusCode": {
+                      "type": "number",
+                      "example": 200
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Login successfuly"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "token": {
+                          "type": "string",
+                          "example": "unique-token-jwt"
+                        },
+                        "refreshToken": {
+                          "type": "string",
+                          "example": "unique-token-jwt"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Failed"
+                    },
+                    "statusCode": {
+                      "type": "number",
+                      "example": 400
+                    },
+                    "errors": {
+                      "type": "object",
+                      "properties": {
+                        "email": {
+                          "type": "string",
+                          "example": ["Email is required."]
+                        },
+                        "password": {
+                          "type": "string",
+                          "example": ["String must contain at least 8 character."]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Failed"
+                    },
+                    "statusCode": {
+                      "type": "number",
+                      "example": 401
+                    },
+                    "errors": {
+                      "type": "string",
+                      "example": "Email or Password is wrong"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Failed"
+                    },
+                    "statusCode": {
+                      "type": "number",
+                      "example": 500
+                    },
+                    "errors": {
+                      "type": "string",
+                      "example": "Internal Server Error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/api/v1/auth/refresh-token": {
+      "post": {
+        "tags": ["Auth"],
+        "summary": "REST API untuk refresh token member",
+        "description": "API ini digunakan ketika token member ingin diganti",
+        "requestBody": {
+          "description": "request body ini digunakan ketika token member ingin diganti",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "refreshToken": {
+                    "type": "string",
+                    "description": "email",
+                    "example": "unique-token-jwt"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Success"
+                    },
+                    "statusCode": {
+                      "type": "number",
+                      "example": 200
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Token refreshed successfully"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "token": {
+                          "type": "string",
+                          "example": "unique-token-jwt"
+                        },
+                        "refreshToken": {
+                          "type": "string",
+                          "example": "unique-token-jwt"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Failed"
+                    },
+                    "statusCode": {
+                      "type": "number",
+                      "example": 400
+                    },
+                    "errors": {
+                      "type": "object",
+                      "properties": {
+                        "refreshToken": {
+                          "type": "string",
+                          "example": ["refreshToken is required."]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Failed"
+                    },
+                    "statusCode": {
+                      "type": "number",
+                      "example": 401
+                    },
+                    "errors": {
+                      "type": "string",
+                      "example": "Invalid refresh token"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Failed"
+                    },
+                    "statusCode": {
+                      "type": "number",
+                      "example": 500
+                    },
+                    "errors": {
+                      "type": "string",
+                      "example": "Internal Server Error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
     "/api/v1/borrow": {
       "post": {
         "tags": ["Members"],

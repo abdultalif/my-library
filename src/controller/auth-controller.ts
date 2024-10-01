@@ -1,6 +1,10 @@
 import { NextFunction, Request, Response } from 'express';
 import logger from '../utils/logging';
-import { loginSchemaValidation, registerSchemaValidation } from '../validation/auth-validation';
+import {
+  loginSchemaValidation,
+  refreshTokenSchemaValidation,
+  registerSchemaValidation,
+} from '../validation/auth-validation';
 import { validation } from '../validation/validate';
 import { ResponseError } from '../error/response-error';
 import { MemberModel } from '../model/member-model';
@@ -37,18 +41,19 @@ export const register = async (req: Request, res: Response, next: NextFunction) 
       throw new ResponseError('Failed', 500, 'Failed to send email');
     }
 
-    logger.info('Register successfuly');
+    logger.info('Register successfuly, Please check your email');
     res.status(201).json({
       status: 'success',
       statusCode: 201,
-      message: 'Register successfuly',
+      message: 'Register successfuly, Please check your email',
       data: result,
     });
   } catch (error: unknown) {
     if (error instanceof ResponseError) {
       logger.error(`${error.statusCode}: ${error.message}`);
-    } else if (error instanceof Error) {
-      logger.error(error.message);
+    }
+    if (error instanceof Error) {
+      logger.error(error.stack);
     } else {
       logger.error('Unknown error occurred');
     }
@@ -73,8 +78,9 @@ export const setActiveUser = async (req: Request, res: Response, next: NextFunct
   } catch (error) {
     if (error instanceof ResponseError) {
       logger.error(`${error.statusCode}: ${error.message}`);
-    } else if (error instanceof Error) {
-      logger.error(error.message);
+    }
+    if (error instanceof Error) {
+      logger.error(error.stack);
     } else {
       logger.error('Unknown error occurred');
     }
@@ -100,6 +106,7 @@ export const login = async (req: Request, res: Response, next: NextFunction) => 
       code: userExist.code,
       name: userExist.name,
       email: userExist.email,
+      isAdmin: userExist.isAdmin,
     };
 
     const token = jsonwebtoken.sign(member, config.jwtSecret as string, {
@@ -122,8 +129,9 @@ export const login = async (req: Request, res: Response, next: NextFunction) => 
   } catch (error: unknown) {
     if (error instanceof ResponseError) {
       logger.error(`${error.statusCode}: ${error.message}`);
-    } else if (error instanceof Error) {
-      logger.error(error.message);
+    }
+    if (error instanceof Error) {
+      logger.error(error.stack);
     } else {
       logger.error('Unknown error occurred');
     }
@@ -133,13 +141,11 @@ export const login = async (req: Request, res: Response, next: NextFunction) => 
 
 export const refreshToken = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const { refreshToken } = req.body;
+    const validateData = await validation.validate(refreshTokenSchemaValidation, req.body);
 
-    if (!refreshToken) {
-      throw new ResponseError('Failed', 401, 'Refresh token is required');
-    }
-
-    const decoded = jsonwebtoken.verify(refreshToken, config.jwtRefreshSecret as string) as { email: string };
+    const decoded = jsonwebtoken.verify(validateData.refreshToken, config.jwtRefreshSecret as string) as {
+      email: string;
+    };
 
     const userExist = await MemberModel.findOne({ email: decoded.email });
 
@@ -173,12 +179,12 @@ export const refreshToken = async (req: Request, res: Response, next: NextFuncti
   } catch (error: unknown) {
     if (error instanceof jsonwebtoken.JsonWebTokenError) {
       next(new ResponseError('Failed', 403, 'Invalid refresh token'));
-    } else if (error instanceof ResponseError) {
-      logger.error(`${error.statusCode}: ${error.message}`);
-      next(error);
+    }
+    if (error instanceof Error) {
+      logger.error(error.stack);
     } else {
       logger.error('Unknown error occurred');
-      next(new ResponseError('Failed', 500, 'Internal server error'));
     }
+    next(error);
   }
 };

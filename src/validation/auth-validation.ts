@@ -33,3 +33,7 @@ export const loginSchemaValidation = z.object({
     .regex(/[0-9]/, 'Password harus memiliki minimal 1 angka')
     .regex(/[!@#$%^&*()]/, 'Password harus menerapkan setidaknya 1 simbol'),
 });
+
+export const refreshTokenSchemaValidation = z.object({
+  refreshToken: z.string().nonempty('Refresh Token Wajib Diisi').min(1, 'Refresh Token Wajib Diisi'),
+});
