@@ -19,6 +19,14 @@ NodeJS, ExpressJS, TypeScript Mongoose, Swagger, Jest, Super Test, Nodemon
 Untuk menjalankan projek ini, kamu perlu menambahkkan environment variables berikut ke dalam file .env di backend
 
 `MONGODB`
+`MAIL_SERVICE`
+`MAIL_USER`
+`MAIL_PASSWORD`
+`MAIL_FROM`
+`JWT_SECRET`
+`JWT_EXPIRES_IN`
+`JWT_REFRESH_SECRET`
+`JWT_REFRESH_EXPIRES_IN`
 
 # Menjalankan Projek di Lokal
 

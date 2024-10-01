@@ -11,7 +11,7 @@ export interface IMember extends Document {
   email: string;
   password: string;
   isAdmin: boolean;
-  token: string | null;
+  isActive: boolean;
   tokenResetPassword: string | null;
   borrowedBooks: IBorrowedBook[];
   penaltyUntil: Date | null;

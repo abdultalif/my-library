@@ -12,7 +12,7 @@ const MemberSchema = new Schema<IMember>({
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   isAdmin: { type: Boolean, default: false },
-  token: { type: String, default: null },
+  isActive: { type: Boolean, default: false },
   tokenResetPassword: { type: String, default: null },
   borrowedBooks: [BorrowedBookSchema],
   penaltyUntil: { type: Date, default: null },
