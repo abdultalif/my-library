@@ -9,8 +9,13 @@ const BorrowedBookSchema = new Schema<IBorrowedBook>({
 const MemberSchema = new Schema<IMember>({
   code: { type: String, required: true, unique: true },
   name: { type: String, required: true },
+  email: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
+  isAdmin: { type: Boolean, default: false },
+  token: { type: String, default: null },
+  tokenResetPassword: { type: String, default: null },
   borrowedBooks: [BorrowedBookSchema],
   penaltyUntil: { type: Date, default: null },
 });
 
-export const Member = model<IMember>('Member', MemberSchema);
+export const MemberModel = model<IMember>('Member', MemberSchema);

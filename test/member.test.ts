@@ -1,13 +1,13 @@
 import request from 'supertest';
 import { app } from '../src/index';
-import { Member } from '../src/model/member-model';
-import { Book } from '../src/model/book-model';
+import { MemberModel } from '../src/model/member-model';
+import { BookModel } from '../src/model/book-model';
 
 jest.mock('../src/model/book-model');
 jest.mock('../src/model/member-model');
 
-describe('GET /api/members', () => {
-  const mockMemberFind = Member.find as jest.Mock;
+describe('GET /api/v1/members', () => {
+  const mockMemberFind = MemberModel.find as jest.Mock;
 
   beforeEach(() => {
     jest.clearAllMocks();
@@ -27,7 +27,7 @@ describe('GET /api/members', () => {
     const mockPopulate = jest.fn().mockResolvedValue(mockMembers);
     mockMemberFind.mockReturnValue({ populate: mockPopulate });
 
-    const response = await request(app).get('/api/members');
+    const response = await request(app).get('/api/v1/members');
 
     expect(response.body.status).toBe('success');
     expect(response.body.statusCode).toBe(200);
@@ -39,7 +39,7 @@ describe('GET /api/members', () => {
     const mockPopulate = jest.fn().mockResolvedValue([]);
     mockMemberFind.mockReturnValue({ populate: mockPopulate });
 
-    const response = await request(app).get('/api/members');
+    const response = await request(app).get('/api/v1/members');
 
     expect(response.status).toBe(404);
     expect(response.body.status).toBe('Failed');
@@ -50,7 +50,7 @@ describe('GET /api/members', () => {
     const mockPopulate = jest.fn().mockRejectedValue(new Error('Database connection failed'));
     mockMemberFind.mockReturnValue({ populate: mockPopulate });
 
-    const response = await request(app).get('/api/members');
+    const response = await request(app).get('/api/v1/members');
 
     expect(response.status).toBe(500);
     expect(response.body.status).toBe('failed');
@@ -58,9 +58,9 @@ describe('GET /api/members', () => {
   });
 });
 
-describe('POST /api/borrow', () => {
-  const mockMemberFindOne = Member.findOne as jest.Mock;
-  const mockBookFindOne = Book.findOne as jest.Mock;
+describe('POST /api/v1/borrow', () => {
+  const mockMemberFindOne = MemberModel.findOne as jest.Mock;
+  const mockBookFindOne = BookModel.findOne as jest.Mock;
 
   beforeEach(() => {
     jest.clearAllMocks();
@@ -74,7 +74,7 @@ describe('POST /api/borrow', () => {
     mockMemberFindOne.mockResolvedValue(null);
 
     const res = await request(app)
-      .post('/api/borrow')
+      .post('/api/v1/borrow')
       .send({ memberCode: 'M001', bookCodes: ['B001'] });
 
     expect(res.status).toBe(404);
@@ -93,7 +93,7 @@ describe('POST /api/borrow', () => {
     mockMemberFindOne.mockResolvedValue(member);
 
     const res = await request(app)
-      .post('/api/borrow')
+      .post('/api/v1/borrow')
       .send({ memberCode: 'M001', bookCodes: ['B001'] });
 
     expect(res.status).toBe(403);
@@ -112,7 +112,7 @@ describe('POST /api/borrow', () => {
     mockMemberFindOne.mockResolvedValue(member);
 
     const res = await request(app)
-      .post('/api/borrow')
+      .post('/api/v1/borrow')
       .send({ memberCode: 'M001', bookCodes: ['B001', 'B002', 'B004'] });
 
     expect(res.status).toBe(403);
@@ -133,7 +133,7 @@ describe('POST /api/borrow', () => {
     mockBookFindOne.mockResolvedValueOnce(null);
 
     const res = await request(app)
-      .post('/api/borrow')
+      .post('/api/v1/borrow')
       .send({ memberCode: 'M001', bookCodes: ['B001'] });
 
     expect(res.status).toBe(404);
@@ -162,7 +162,7 @@ describe('POST /api/borrow', () => {
     mockBookFindOne.mockResolvedValueOnce(bookOutOfStock);
 
     const res = await request(app)
-      .post('/api/borrow')
+      .post('/api/v1/borrow')
       .send({ memberCode: 'M001', bookCodes: ['B001'] });
 
     expect(res.status).toBe(400);
@@ -204,7 +204,7 @@ describe('POST /api/borrow', () => {
     mockBookFindOne.mockResolvedValueOnce(book1).mockResolvedValueOnce(book2);
 
     const res = await request(app)
-      .post('/api/borrow')
+      .post('/api/v1/borrow')
       .send({ memberCode: 'M001', bookCodes: ['B001', 'B002'] });
 
     expect(res.status).toBe(200);
@@ -213,9 +213,9 @@ describe('POST /api/borrow', () => {
   });
 });
 
-describe('POST /api/return', () => {
-  const mockMemberFindOne = Member.findOne as jest.Mock;
-  const mockBookFindOne = Book.findOne as jest.Mock;
+describe('POST /api/v1/return', () => {
+  const mockMemberFindOne = MemberModel.findOne as jest.Mock;
+  const mockBookFindOne = BookModel.findOne as jest.Mock;
 
   beforeEach(() => {
     jest.clearAllMocks();
@@ -229,7 +229,7 @@ describe('POST /api/return', () => {
     mockMemberFindOne.mockResolvedValue(null);
 
     const res = await request(app)
-      .post('/api/return')
+      .post('/api/v1/return')
       .send({ memberCode: 'M001', bookCodes: ['B001'] });
 
     expect(res.status).toBe(404);
@@ -248,7 +248,7 @@ describe('POST /api/return', () => {
     mockBookFindOne.mockResolvedValue(null); // Book not found
 
     const res = await request(app)
-      .post('/api/return')
+      .post('/api/v1/return')
       .send({ memberCode: 'M001', bookCodes: ['B001'] });
 
     expect(res.status).toBe(404);
@@ -276,7 +276,7 @@ describe('POST /api/return', () => {
     mockBookFindOne.mockResolvedValue(book);
 
     const res = await request(app)
-      .post('/api/return')
+      .post('/api/v1/return')
       .send({ memberCode: 'M001', bookCodes: ['B001'] });
 
     expect(res.status).toBe(400);
@@ -309,7 +309,7 @@ describe('POST /api/return', () => {
     mockBookFindOne.mockResolvedValue(book);
 
     const res = await request(app)
-      .post('/api/return')
+      .post('/api/v1/return')
       .send({ memberCode: 'M001', bookCodes: ['B001'] });
 
     expect(res.status).toBe(200);
@@ -343,7 +343,7 @@ describe('POST /api/return', () => {
     mockBookFindOne.mockResolvedValue(book);
 
     const res = await request(app)
-      .post('/api/return')
+      .post('/api/v1/return')
       .send({ memberCode: 'M001', bookCodes: ['B001'] });
 
     expect(res.status).toBe(200);

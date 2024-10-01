@@ -16,7 +16,10 @@ app.use(router);
 app.use(errorMiddleware);
 
 app.get('/', (req: Request, res: Response) => {
-  res.status(200).json({ sayhello: 'Hello World!' });
+  res.status(200).json({
+    sayhello: 'Hello World!',
+    Swagger: 'http://localhost:9000/api-docs',
+  });
 });
 
 if (process.env.NODE_ENV !== 'test') {

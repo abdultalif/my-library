@@ -21,7 +21,7 @@
     }
   ],
   "paths": {
-    "/api/borrow": {
+    "/api/v1/borrow": {
       "post": {
         "tags": ["Members"],
         "summary": "REST API untuk meminjam buku",
@@ -205,7 +205,7 @@
         }
       }
     },
-    "/api/return": {
+    "/api/v1/return": {
       "post": {
         "tags": ["Members"],
         "summary": "API untuk Memengembalikan buku",
@@ -357,7 +357,7 @@
         }
       }
     },
-    "/api/members": {
+    "/api/v1/members": {
       "get": {
         "tags": ["Members"],
         "summary": "API untuk menampilkan Data Member",
@@ -439,7 +439,7 @@
         }
       }
     },
-    "/api/books": {
+    "/api/v1/books": {
       "get": {
         "tags": ["Books"],
         "summary": "API untuk menampilkan Data Buku",
@@ -512,6 +512,351 @@
                     "errors": {
                       "type": "object",
                       "example": "Books Not Found"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Failed"
+                    },
+                    "statusCode": {
+                      "type": "number",
+                      "example": 500
+                    },
+                    "errors": {
+                      "type": "string",
+                      "example": "Internal Server Error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/books/{code}": {
+      "get": {
+        "tags": ["Books"],
+        "parameters": [
+          {
+            "name": "code",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "API untuk menampilkan Data Buku berdasarkan Code",
+        "description": "API ini digunakan untuk menampilkan semua data buku berdasarkan code",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Success"
+                    },
+                    "statusCode": {
+                      "type": "number",
+                      "example": 200
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Book checked successfully"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "_id": {
+                          "type": "string",
+                          "example": "66f7c3e3c322841a8fe905f7"
+                        },
+                        "code": {
+                          "type": "string",
+                          "example": "B001"
+                        },
+                        "title": {
+                          "type": "string",
+                          "example": "One Piece"
+                        },
+                        "author": {
+                          "type": "string",
+                          "example": "Eichiro Oda"
+                        },
+                        "stock": {
+                          "type": "number",
+                          "example": 4
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Failed"
+                    },
+                    "statusCode": {
+                      "type": "number",
+                      "example": 404
+                    },
+                    "errors": {
+                      "type": "object",
+                      "example": "Book Not Found"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Failed"
+                    },
+                    "statusCode": {
+                      "type": "number",
+                      "example": 500
+                    },
+                    "errors": {
+                      "type": "string",
+                      "example": "Internal Server Error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": ["Books"],
+        "summary": "API untuk mengedit Data Buku berdasarkan Code",
+        "description": "API ini digunakan untuk mengedit semua data buku berdasarkan code",
+        "parameters": [
+          {
+            "name": "code",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "request body ini digunakan update member",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string",
+                    "description": "title",
+                    "example": "One Piece"
+                  },
+                  "author": {
+                    "type": "string",
+                    "description": "author",
+                    "example": "Eichiro Oda"
+                  },
+                  "stock": {
+                    "type": "number",
+                    "description": "stock",
+                    "example": 10
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Success"
+                    },
+                    "statusCode": {
+                      "type": "number",
+                      "example": 200
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Book updated successfully"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Failed"
+                    },
+                    "statusCode": {
+                      "type": "number",
+                      "example": 404
+                    },
+                    "errors": {
+                      "type": "object",
+                      "example": "Book Not Found"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Failed"
+                    },
+                    "statusCode": {
+                      "type": "number",
+                      "example": 500
+                    },
+                    "errors": {
+                      "type": "string",
+                      "example": "Internal Server Error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Books"],
+        "parameters": [
+          {
+            "name": "code",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "API untuk mengapus Data Buku berdasarkan Code",
+        "description": "API ini digunakan untuk mengapus semua data buku berdasarkan code",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Success"
+                    },
+                    "statusCode": {
+                      "type": "number",
+                      "example": 200
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Book deleted successfully"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Failed"
+                    },
+                    "statusCode": {
+                      "type": "number",
+                      "example": 404
+                    },
+                    "errors": {
+                      "type": "object",
+                      "example": "Book Not Found"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Failed"
+                    },
+                    "statusCode": {
+                      "type": "number",
+                      "example": 500
+                    },
+                    "errors": {
+                      "type": "string",
+                      "example": "Internal Server Error"
                     }
                   }
                 }

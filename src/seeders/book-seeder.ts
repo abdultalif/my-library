@@ -1,4 +1,4 @@
-import { Book } from '../model/book-model';
+import { BookModel } from '../model/book-model';
 import logger from '../utils/logging';
 import '../utils/connectDB';
 
@@ -37,8 +37,8 @@ const seedBooks = async () => {
       },
     ];
 
-    await Book.deleteMany({});
-    await Book.insertMany(books);
+    await BookModel.deleteMany({});
+    await BookModel.insertMany(books);
     logger.info('Books seeding completed successfully!');
   } catch (error) {
     logger.error('Seeding books failed', error);

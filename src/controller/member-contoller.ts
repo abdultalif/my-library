@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
-import { Member } from '../model/member-model';
-import { Book } from '../model/book-model';
+import { MemberModel } from '../model/member-model';
+import { BookModel } from '../model/book-model';
 import { ResponseError } from '../error/response-error';
 import { validation } from '../validation/validate';
 import { schemaValidation } from '../validation/validation';
@@ -11,7 +11,7 @@ export const borrowBook = async (req: Request, res: Response, next: NextFunction
 
     const { memberCode, bookCodes } = validateData;
 
-    const member = await Member.findOne({ code: memberCode });
+    const member = await MemberModel.findOne({ code: memberCode });
 
     if (!member) throw new ResponseError('Failed', 404, 'Member not found');
 
@@ -26,7 +26,7 @@ export const borrowBook = async (req: Request, res: Response, next: NextFunction
     const borrowedBooks = [];
 
     for (const bookCode of bookCodes) {
-      const book = await Book.findOne({ code: bookCode });
+      const book = await BookModel.findOne({ code: bookCode });
       if (!book) throw new ResponseError('Failed', 404, `Book with code ${bookCode} not found`);
       if (book.stock < 1) throw new ResponseError('Failed', 400, `Book with code ${bookCode} is out of stock`);
 
@@ -55,7 +55,7 @@ export const returnBook = async (req: Request, res: Response, next: NextFunction
 
     const { memberCode, bookCodes } = validateData;
 
-    const member = await Member.findOne({ code: memberCode });
+    const member = await MemberModel.findOne({ code: memberCode });
 
     if (!member) throw new ResponseError('Failed', 404, 'Member not found');
 
@@ -63,7 +63,7 @@ export const returnBook = async (req: Request, res: Response, next: NextFunction
     const returnedBooks = [];
 
     for (const bookCode of bookCodes) {
-      const book = await Book.findOne({ code: bookCode });
+      const book = await BookModel.findOne({ code: bookCode });
       if (!book) {
         throw new ResponseError('Failed', 404, `Book with code ${bookCode} not found`);
       }
@@ -108,7 +108,7 @@ export const returnBook = async (req: Request, res: Response, next: NextFunction
 
 export const checkMembers = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const members = await Member.find().populate('borrowedBooks');
+    const members = await MemberModel.find().populate('borrowedBooks');
 
     if (members.length === 0) throw new ResponseError('Failed', 404, 'Members not found');
 
