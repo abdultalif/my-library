@@ -1,8 +1,9 @@
 import request from 'supertest';
-import { app } from '../src/index';
 import { MemberModel } from '../src/model/member-model';
 import { BookModel } from '../src/model/book-model';
+import createServer from '../src/utils/server';
 
+const app = createServer();
 jest.mock('../src/model/book-model');
 jest.mock('../src/model/member-model');
 

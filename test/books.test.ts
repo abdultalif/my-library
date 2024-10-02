@@ -1,7 +1,8 @@
 import request from 'supertest';
-import { app } from '../src/index';
 import { BookModel } from '../src/model/book-model';
+import createServer from '../src/utils/server';
 
+const app = createServer();
 jest.mock('../src/model/book-model');
 
 describe('GET /api/v1/books', () => {
