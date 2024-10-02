@@ -3,6 +3,7 @@ import { errorMiddleware } from '../middleware/error-middleware';
 import '../utils/connectDB';
 import router from '../router/index';
 import swaggerUi from 'swagger-ui-express';
+import cors from 'cors';
 import * as swaggerDocument from '../../docs/swagger.json';
 
 const createServer = () => {
@@ -12,6 +13,7 @@ const createServer = () => {
   app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
   app.use(express.urlencoded({ extended: true }));
   app.use(router);
+  app.use(cors());
   app.use(errorMiddleware);
 
   app.get('/', (req: Request, res: Response) => {

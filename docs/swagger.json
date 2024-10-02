@@ -21,6 +21,9 @@
   ],
   "servers": [
     {
+      "url": "https://my-library-app-seven.vercel.app"
+    },
+    {
       "url": "http://localhost:9000"
     }
   ],
