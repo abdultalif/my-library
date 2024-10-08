@@ -23,10 +23,9 @@ export const checkBooks = async (req: Request, res: Response, next: NextFunction
     next(error);
     if (error instanceof ResponseError) {
       logger.error(`${error.statusCode}: ${error.message}`);
-    } else if (error instanceof Error) {
-      logger.error(error.message);
-    } else {
-      logger.error('Unknown error occurred');
+    }
+    if (error instanceof Error) {
+      logger.error(error.stack);
     }
   }
 };
@@ -46,6 +45,12 @@ export const checkBook = async (req: Request, res: Response, next: NextFunction)
     logger.info('Book checked successfully');
   } catch (error) {
     next(error);
+    if (error instanceof ResponseError) {
+      logger.error(`${error.statusCode}: ${error.message}`);
+    }
+    if (error instanceof Error) {
+      logger.error(error.stack);
+    }
   }
 };
 
@@ -72,10 +77,9 @@ export const addBook = async (req: Request, res: Response, next: NextFunction) =
     next(error);
     if (error instanceof ResponseError) {
       logger.error(`${error.statusCode}: ${error.message}`);
-    } else if (error instanceof Error) {
-      logger.error(error.message);
-    } else {
-      logger.error('Unknown error occurred');
+    }
+    if (error instanceof Error) {
+      logger.error(error.stack);
     }
   }
 };
@@ -92,14 +96,13 @@ export const deleteBook = async (req: Request, res: Response, next: NextFunction
     });
     logger.info('Book deleted successfully');
   } catch (error) {
-    next(error);
     if (error instanceof ResponseError) {
       logger.error(`${error.statusCode}: ${error.message}`);
-    } else if (error instanceof Error) {
-      logger.error(error.message);
-    } else {
-      logger.error('Unknown error occurred');
     }
+    if (error instanceof Error) {
+      logger.error(error.stack);
+    }
+    next(error);
   }
 };
 
@@ -118,13 +121,12 @@ export const updateBook = async (req: Request, res: Response, next: NextFunction
 
     logger.info('Book updated successfully');
   } catch (error) {
-    next(error);
     if (error instanceof ResponseError) {
       logger.error(`${error.statusCode}: ${error.message}`);
-    } else if (error instanceof Error) {
-      logger.error(error.message);
-    } else {
-      logger.error('Unknown error occurred');
     }
+    if (error instanceof Error) {
+      logger.error(error.stack);
+    }
+    next(error);
   }
 };

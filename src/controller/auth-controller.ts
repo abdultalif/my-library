@@ -16,7 +16,7 @@ import { sendMail } from '../utils/send-mail';
 
 export const register = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const validateData = validation.validate(registerSchemaValidation, req.body);
+    const validateData = await validation.validate(registerSchemaValidation, req.body);
 
     const existingMember = await MemberModel.findOne({ email: validateData.email });
     if (existingMember) {
@@ -34,7 +34,7 @@ export const register = async (req: Request, res: Response, next: NextFunction) 
       borrowedBooks: [],
     });
 
-    const result = await newMember.save();
+    const result = await MemberModel.create(newMember);
     const sendEmail = await sendMail(result.name, result.email, result._id as string);
 
     if (!sendEmail) {
@@ -46,7 +46,14 @@ export const register = async (req: Request, res: Response, next: NextFunction) 
       status: 'success',
       statusCode: 201,
       message: 'Register successfuly, Please check your email',
-      data: result,
+      data: {
+        _id: result._id,
+        code: result.code,
+        name: result.name,
+        email: result.email,
+        isActive: result.isActive,
+        isAdmin: result.isAdmin,
+      },
     });
   } catch (error: unknown) {
     if (error instanceof ResponseError) {
@@ -54,8 +61,6 @@ export const register = async (req: Request, res: Response, next: NextFunction) 
     }
     if (error instanceof Error) {
       logger.error(error.stack);
-    } else {
-      logger.error('Unknown error occurred');
     }
     next(error);
   }
@@ -81,8 +86,6 @@ export const setActiveUser = async (req: Request, res: Response, next: NextFunct
     }
     if (error instanceof Error) {
       logger.error(error.stack);
-    } else {
-      logger.error('Unknown error occurred');
     }
     next(error);
   }
@@ -117,8 +120,6 @@ export const login = async (req: Request, res: Response, next: NextFunction) => 
       expiresIn: config.jwtRefreshExpiresIn || '86400s',
     });
 
-    await MemberModel.updateOne({ email: validateData.email }, { $set: { token: token } });
-
     logger.info('Login successfuly');
     res.status(200).json({
       status: 'success',
@@ -132,8 +133,6 @@ export const login = async (req: Request, res: Response, next: NextFunction) => 
     }
     if (error instanceof Error) {
       logger.error(error.stack);
-    } else {
-      logger.error('Unknown error occurred');
     }
     next(error);
   }
@@ -167,6 +166,7 @@ export const refreshToken = async (req: Request, res: Response, next: NextFuncti
       expiresIn: config.jwtRefreshExpiresIn || '86400s',
     });
 
+    logger.info('Token refreshed successfully');
     res.status(200).json({
       status: 'success',
       statusCode: 200,
@@ -177,13 +177,11 @@ export const refreshToken = async (req: Request, res: Response, next: NextFuncti
       },
     });
   } catch (error: unknown) {
-    if (error instanceof jsonwebtoken.JsonWebTokenError) {
-      next(new ResponseError('Failed', 403, 'Invalid refresh token'));
+    if (error instanceof ResponseError) {
+      logger.error(`${error.statusCode}: ${error.message}`);
     }
     if (error instanceof Error) {
       logger.error(error.stack);
-    } else {
-      logger.error('Unknown error occurred');
     }
     next(error);
   }

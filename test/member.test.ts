@@ -2,6 +2,7 @@ import request from 'supertest';
 import { MemberModel } from '../src/model/member-model';
 import { BookModel } from '../src/model/book-model';
 import createServer from '../src/utils/server';
+import { ResponseError } from '../src/error/response-error';
 
 const app = createServer();
 jest.mock('../src/model/book-model');
@@ -48,13 +49,13 @@ describe('GET /api/v1/members', () => {
   });
 
   it('should return 500 status code', async () => {
-    const mockPopulate = jest.fn().mockRejectedValue(new Error('Database connection failed'));
+    const mockPopulate = jest.fn().mockRejectedValue(new ResponseError('Failed', 500, 'Database connection failed'));
     mockMemberFind.mockReturnValue({ populate: mockPopulate });
 
     const response = await request(app).get('/api/v1/members');
 
     expect(response.status).toBe(500);
-    expect(response.body.status).toBe('failed');
+    expect(response.body.status).toBe('Failed');
     expect(response.body.errors).toBe('Database connection failed');
   });
 });
