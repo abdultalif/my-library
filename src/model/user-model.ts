@@ -1,18 +1,18 @@
 import { Schema, model } from 'mongoose';
-import { IBorrowedBook, IMember } from '../types/members';
+import { IBorrowedBook, IUser } from '../types/members';
 
 const BorrowedBookSchema = new Schema<IBorrowedBook>({
   bookCode: { type: String, required: true },
   borrowedAt: { type: Date, default: Date.now },
 });
 
-const MemberSchema = new Schema<IMember>(
+const UserSchema = new Schema<IUser>(
   {
     code: { type: String, required: true, unique: true },
     name: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    isAdmin: { type: Boolean, default: false },
+    role: { type: String, default: 'Member' },
     isActive: { type: Boolean, default: false },
     tokenResetPassword: { type: String, default: null },
     borrowedBooks: [BorrowedBookSchema],
@@ -21,4 +21,4 @@ const MemberSchema = new Schema<IMember>(
   { timestamps: true },
 );
 
-export const MemberModel = model<IMember>('Member', MemberSchema);
+export const UserModel = model<IUser>('User', UserSchema);

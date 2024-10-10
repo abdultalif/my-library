@@ -15,16 +15,20 @@
       "description": "API ini untuk mengelola member resources"
     },
     {
+      "name": "Users",
+      "description": "API ini untuk mengelola user resources"
+    },
+    {
       "name": "Books",
       "description": "API ini untuk mengelola buku resources"
     }
   ],
   "servers": [
     {
-      "url": "https://my-library-app-seven.vercel.app"
+      "url": "http://localhost:9000"
     },
     {
-      "url": "http://localhost:9000"
+      "url": "https://my-library-app-seven.vercel.app"
     }
   ],
   "host": "my-library-app-seven.vercel.app",
@@ -103,9 +107,9 @@
                           "type": "string",
                           "example": "Abdul Talif"
                         },
-                        "isAdmin": {
-                          "type": "boolean",
-                          "example": false
+                        "Role": {
+                          "type": "string",
+                          "example": "Member"
                         },
                         "isActice": {
                           "type": "boolean",
@@ -1362,9 +1366,9 @@
         }
       }
     },
-    "/api/v1/members": {
+    "/api/v1/users": {
       "get": {
-        "tags": ["Members"],
+        "tags": ["Users"],
         "summary": "API untuk menampilkan Data Member",
         "description": "API ini digunakan untuk menampilkan semua data member",
         "responses": {
@@ -1401,6 +1405,10 @@
                         "name": {
                           "type": "string",
                           "example": "Talif"
+                        },
+                        "role": {
+                          "type": "string",
+                          "example": "Member"
                         },
                         "borrowedBooks": {
                           "type": "string",

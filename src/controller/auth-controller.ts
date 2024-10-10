@@ -9,7 +9,7 @@ import {
 } from '../validation/auth-validation';
 import { validation } from '../validation/validate';
 import { ResponseError } from '../error/response-error';
-import { MemberModel } from '../model/member-model';
+import { UserModel } from '../model/user-model';
 import { compare, hash } from 'bcrypt';
 import jsonwebtoken from 'jsonwebtoken';
 import config from '../config/environment';
@@ -21,15 +21,15 @@ export const register = async (req: Request, res: Response, next: NextFunction) 
   try {
     const validateData = await validation.validate(registerSchemaValidation, req.body);
 
-    const existingMember = await MemberModel.findOne({ email: validateData.email });
+    const existingMember = await UserModel.findOne({ email: validateData.email });
     if (existingMember) {
       throw new ResponseError('Failed', 409, 'Email already exist');
     }
 
-    const codeMember = await generateCode(MemberModel, 'M');
+    const codeMember = await generateCode(UserModel, 'U');
 
     const hashedPassword = await hash(validateData.password, 10);
-    const newMember = new MemberModel({
+    const newMember = new UserModel({
       code: codeMember,
       name: validateData.name,
       email: validateData.email,
@@ -37,7 +37,7 @@ export const register = async (req: Request, res: Response, next: NextFunction) 
       borrowedBooks: [],
     });
 
-    const result = await MemberModel.create(newMember);
+    const result = await UserModel.create(newMember);
     const sendEmail = await sendMail(result.name, result.email, result._id as string);
 
     if (!sendEmail) {
@@ -54,8 +54,8 @@ export const register = async (req: Request, res: Response, next: NextFunction) 
         code: result.code,
         name: result.name,
         email: result.email,
+        role: result.role,
         isActive: result.isActive,
-        isAdmin: result.isAdmin,
       },
     });
   } catch (error: unknown) {
@@ -72,11 +72,11 @@ export const register = async (req: Request, res: Response, next: NextFunction) 
 export const setActiveUser = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const { email, memberId } = req.params;
-    const memberActive = await MemberModel.findOne({ email, _id: memberId });
+    const memberActive = await UserModel.findOne({ email, _id: memberId });
     if (!memberActive) {
       throw new ResponseError('Failed', 404, 'Member not found');
     }
-    await MemberModel.updateOne({ _id: memberId }, { $set: { isActive: true } });
+    await UserModel.updateOne({ _id: memberId }, { $set: { isActive: true } });
     res.status(200).json({
       status: 'success',
       statusCode: 200,
@@ -98,7 +98,7 @@ export const login = async (req: Request, res: Response, next: NextFunction) => 
   try {
     const validateData = validation.validate(loginSchemaValidation, req.body);
 
-    const userExist = await MemberModel.findOne({ email: validateData.email });
+    const userExist = await UserModel.findOne({ email: validateData.email });
     if (!userExist) {
       throw new ResponseError('Failed', 401, 'Email or Password is wrong');
     }
@@ -108,18 +108,18 @@ export const login = async (req: Request, res: Response, next: NextFunction) => 
       throw new ResponseError('Failed', 401, 'Email or Password is wrong');
     }
 
-    const member = {
+    const user = {
       code: userExist.code,
       name: userExist.name,
       email: userExist.email,
-      isAdmin: userExist.isAdmin,
+      role: userExist.role,
     };
 
-    const token = jsonwebtoken.sign(member, config.jwtSecret as string, {
+    const token = jsonwebtoken.sign(user, config.jwtSecret as string, {
       expiresIn: config.jwtExpiresIn || '7200s',
     });
 
-    const refreshToken = jsonwebtoken.sign(member, config.jwtRefreshSecret as string, {
+    const refreshToken = jsonwebtoken.sign(user, config.jwtRefreshSecret as string, {
       expiresIn: config.jwtRefreshExpiresIn || '86400s',
     });
 
@@ -149,23 +149,23 @@ export const refreshToken = async (req: Request, res: Response, next: NextFuncti
       email: string;
     };
 
-    const userExist = await MemberModel.findOne({ email: decoded.email });
+    const userExist = await UserModel.findOne({ email: decoded.email });
 
     if (!userExist) {
       throw new ResponseError('Failed', 401, 'Invalid refresh token');
     }
 
-    const member = {
+    const user = {
       code: userExist.code,
       name: userExist.name,
       email: userExist.email,
     };
 
-    const newToken = jsonwebtoken.sign(member, config.jwtSecret as string, {
+    const newToken = jsonwebtoken.sign(user, config.jwtSecret as string, {
       expiresIn: config.jwtExpiresIn || '7200s',
     });
 
-    const newRefreshToken = jsonwebtoken.sign(member, config.jwtRefreshSecret as string, {
+    const newRefreshToken = jsonwebtoken.sign(user, config.jwtRefreshSecret as string, {
       expiresIn: config.jwtRefreshExpiresIn || '86400s',
     });
 
@@ -194,19 +194,19 @@ export const forgotPassword = async (req: Request, res: Response, next: NextFunc
   try {
     const validateData = await validation.validate(forgotPasswordSchemaValidation, req.body);
 
-    const memberExist = await MemberModel.findOne({ email: validateData.email });
+    const memberExist = await UserModel.findOne({ email: validateData.email });
     if (!memberExist) throw new ResponseError('Failed', 404, 'Email not found');
 
     const tokenForgotPassword = uuidv4();
 
-    const result = await MemberModel.findOneAndUpdate(
+    const result = await UserModel.findOneAndUpdate(
       { email: validateData.email },
       { $set: { tokenResetPassword: tokenForgotPassword } },
       { new: true },
     );
 
     if (!result || !result.tokenResetPassword) {
-      throw new ResponseError('Failed', 500, 'Failed to update member with token');
+      throw new ResponseError('Failed', 500, 'Failed to update user with token');
     }
 
     const sendMailForgot = await sendMailForgotPassword(result.name, result.email, result.tokenResetPassword);
@@ -241,7 +241,7 @@ export const forgotPassword = async (req: Request, res: Response, next: NextFunc
 
 export const setActiveToken = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const memberExist = await MemberModel.findOne({ tokenResetPassword: req.params.token });
+    const memberExist = await UserModel.findOne({ tokenResetPassword: req.params.token });
     if (!memberExist) throw new ResponseError('Failed', 404, 'Invalid token');
 
     const currentTimestamp = new Date();
@@ -269,13 +269,13 @@ export const setActiveToken = async (req: Request, res: Response, next: NextFunc
 export const resetPassword = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const { token } = req.params;
-    const memberExist = await MemberModel.findOne({ tokenResetPassword: token });
+    const memberExist = await UserModel.findOne({ tokenResetPassword: token });
     if (!memberExist) throw new ResponseError('Failed', 404, 'Invalid Token');
 
     const validateData = await validation.validate(resetPasswordSchemaValidation, req.body);
 
     const newPassword = await hash(validateData.newPassword, 10);
-    await MemberModel.updateOne(
+    await UserModel.updateOne(
       { email: memberExist.email },
       { $set: { password: newPassword, tokenResetPassword: null } },
     );

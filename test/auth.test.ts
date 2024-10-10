@@ -1,5 +1,5 @@
 import { ResponseError } from '../src/error/response-error';
-import { MemberModel } from '../src/model/member-model';
+import { UserModel } from '../src/model/user-model';
 import { generateCode } from '../src/utils/code-generator';
 import { sendMail, sendMailForgotPassword } from '../src/utils/send-mail';
 import createServer from '../src/utils/server';
@@ -15,14 +15,14 @@ jest.mock('bcrypt');
 jest.mock('jsonwebtoken');
 jest.mock('uuid');
 jest.mock('../src/utils/send-mail');
-jest.mock('../src/model/member-model');
+jest.mock('../src/model/user-model');
 jest.mock('../src/utils/code-generator');
 jest.mock('../src/validation/validate');
 
-const mockFindOne = MemberModel.findOne as jest.Mock;
+const mockFindOne = UserModel.findOne as jest.Mock;
 const mockValidate = validation.validate as jest.Mock;
-const mockUpdateOne = MemberModel.updateOne as jest.Mock;
-const mockCreateMember = MemberModel.create as jest.Mock;
+const mockUpdateOne = UserModel.updateOne as jest.Mock;
+const mockCreateMember = UserModel.create as jest.Mock;
 const mockCodeGenerator = generateCode as jest.Mock;
 const mockUUID = v4 as jest.Mock;
 const mockSendMail = sendMail as jest.Mock;
@@ -31,7 +31,7 @@ const mockJWTVerify = jsonwebtoken.verify as jest.Mock;
 const mockJWTSign = jsonwebtoken.sign as jest.Mock;
 const mockBcryptHash = bcrypt.hash as jest.Mock;
 const mockBcryptCompare = bcrypt.compare as jest.Mock;
-const mockFindOneAndUpdate = MemberModel.findOneAndUpdate as jest.Mock;
+const mockFindOneAndUpdate = UserModel.findOneAndUpdate as jest.Mock;
 
 describe('POST /api/v1/auth - Register', () => {
   beforeEach(() => {
@@ -52,7 +52,7 @@ describe('POST /api/v1/auth - Register', () => {
       email: 'abdultalif@gmail.com',
       name: 'Abdul Talif',
       isActive: false,
-      isAdmin: false,
+      role: 'Member',
     };
 
     mockValidate.mockResolvedValue(mockRequestData);
@@ -72,7 +72,7 @@ describe('POST /api/v1/auth - Register', () => {
 
     expect(mockValidate).toHaveBeenCalledWith(expect.anything(), mockRequestData);
     expect(mockSendMail).toHaveBeenCalledWith('Abdul Talif', 'abdultalif@gmail.com', 'mockedMemberId');
-    expect(mockCodeGenerator).toHaveBeenCalledWith(MemberModel, 'M');
+    expect(mockCodeGenerator).toHaveBeenCalledWith(UserModel, 'M');
     expect(mockBcryptHash).toHaveBeenCalledWith(mockRequestData.password, 10);
   });
 
@@ -146,7 +146,7 @@ describe('GET /api/v1/auth/set-active/{email}/{memberId} - Set Active', () => {
     expect(response.body.message).toBe('Member activated successfully');
   });
 
-  it('should return 404 status code when member not found', async () => {
+  it('should return 404 status code when user not found', async () => {
     mockFindOne.mockResolvedValue(null);
 
     const response = await request(app).get('/api/v1/auth/set-active/abdultalif@gmail.com/mockedMemberId');
@@ -277,7 +277,7 @@ describe('POST /api/v1/auth/login - Login API', () => {
 });
 
 describe('POST /api/v1/auth/refresh-token', () => {
-  const mockFindOne = MemberModel.findOne as jest.Mock;
+  const mockFindOne = UserModel.findOne as jest.Mock;
   const mockValidate = validation.validate as jest.Mock;
 
   beforeEach(() => {
@@ -388,8 +388,8 @@ describe('POST /api/v1/auth/forgot-password', () => {
       tokenResetPassword: 'unique-token-UUID',
     });
     expect(validation.validate).toHaveBeenCalledWith(expect.anything(), requestData);
-    expect(MemberModel.findOne).toHaveBeenCalledWith({ email: requestData.email });
-    expect(MemberModel.findOneAndUpdate).toHaveBeenCalledWith(
+    expect(UserModel.findOne).toHaveBeenCalledWith({ email: requestData.email });
+    expect(UserModel.findOneAndUpdate).toHaveBeenCalledWith(
       { email: requestData.email },
       { $set: { tokenResetPassword: 'unique-token-UUID' } },
       { new: true },
@@ -397,7 +397,7 @@ describe('POST /api/v1/auth/forgot-password', () => {
     expect(sendMailForgotPassword).toHaveBeenCalledWith(mockMember.name, mockMember.email, 'unique-token-UUID');
   });
 
-  it('should return 404 status code when member not found', async () => {
+  it('should return 404 status code when user not found', async () => {
     const requestData = { email: 'abdultalif@gmail.com' };
 
     mockValidate.mockResolvedValue(requestData);
@@ -411,7 +411,7 @@ describe('POST /api/v1/auth/forgot-password', () => {
     expect(mockValidate).toHaveBeenCalledWith(expect.anything(), requestData);
   });
 
-  it('should return 500 status code when failed to update member with token', async () => {
+  it('should return 500 status code when failed to update user with token', async () => {
     const requestData = { email: 'abdultalif@gmail.com' };
 
     mockValidate.mockResolvedValue(requestData);
@@ -422,7 +422,7 @@ describe('POST /api/v1/auth/forgot-password', () => {
 
     expect(response.status).toBe(500);
     expect(response.body.status).toBe('Failed');
-    expect(response.body.errors).toBe('Failed to update member with token');
+    expect(response.body.errors).toBe('Failed to update user with token');
     expect(mockValidate).toHaveBeenCalledWith(expect.anything(), requestData);
     expect(mockFindOne).toHaveBeenCalledWith({ email: 'abdultalif@gmail.com' });
   });
@@ -561,7 +561,7 @@ describe('PATCH /api/v1/auth/reset-password/{token}', () => {
     expect(mockFindOne).toHaveBeenCalledWith({ tokenResetPassword: mockToken });
   });
 
-  it('should return 500 status code when failed to update member', async () => {
+  it('should return 500 status code when failed to update user', async () => {
     const mockToken = 'unique-token';
     const mockRequestData = {
       newPassword: 'Talif123!',

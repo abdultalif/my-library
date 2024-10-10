@@ -18,10 +18,6 @@ describe('GET /api/v1/books - Get All Books', () => {
     jest.clearAllMocks();
   });
 
-  afterEach(() => {
-    jest.restoreAllMocks();
-  });
-
   it('should return 200 status code and the correct books data', async () => {
     const mockBooks = [
       { _id: '66f7cd7a2deeff6ffddc184c', code: 'B001', title: 'One Piece', author: 'Eichiro Oda', stock: 10 },
@@ -65,10 +61,6 @@ describe('GET /api/v1/book - Get Book', () => {
 
   beforeEach(() => {
     jest.clearAllMocks();
-  });
-
-  afterEach(() => {
-    jest.restoreAllMocks();
   });
 
   it('should return 200 status code and the correct books data', async () => {
@@ -119,10 +111,6 @@ describe('POST /api/v1/books - Add Book', () => {
 
   beforeEach(() => {
     jest.clearAllMocks();
-  });
-
-  afterEach(() => {
-    jest.restoreAllMocks();
   });
 
   it('should return 201 status code and the correct data', async () => {
@@ -211,10 +199,6 @@ describe('DELETE /api/v1/books/{code} - Delete Book', () => {
     jest.clearAllMocks();
   });
 
-  afterEach(() => {
-    jest.restoreAllMocks();
-  });
-
   it('should return 200 status code and the correct data', async () => {
     const mockCode = 'B001';
     mockBookFindOne.mockResolvedValue({ code: mockCode });
@@ -259,10 +243,6 @@ describe('PATCH /api/v1/books/{code} - Update Book', () => {
 
   beforeEach(() => {
     jest.clearAllMocks();
-  });
-
-  afterEach(() => {
-    jest.restoreAllMocks();
   });
 
   it('should return 200 status code and the correct data', async () => {

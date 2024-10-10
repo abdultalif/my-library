@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
-import { MemberModel } from '../model/member-model';
+import { UserModel } from '../model/user-model';
 import { BookModel } from '../model/book-model';
 import { ResponseError } from '../error/response-error';
 import { validation } from '../validation/validate';
@@ -9,18 +9,18 @@ export const borrowBook = async (req: Request, res: Response, next: NextFunction
   try {
     const validateData = await validation.validate(schemaValidation, req.body);
 
-    const { memberCode, bookCodes } = validateData;
+    const { userCode, bookCodes } = validateData;
 
-    const member = await MemberModel.findOne({ code: memberCode });
+    const user = await UserModel.findOne({ code: userCode });
 
-    if (!member) throw new ResponseError('Failed', 404, 'Member not found');
+    if (!user) throw new ResponseError('Failed', 404, 'Member not found');
 
-    if (member.penaltyUntil && member.penaltyUntil > new Date()) {
+    if (user.penaltyUntil && user.penaltyUntil > new Date()) {
       throw new ResponseError('Failed', 403, 'Member is penalized');
     }
 
-    if (member.borrowedBooks.length + bookCodes.length > 2) {
-      throw new ResponseError('Failed', 403, 'Member cannot borrow more than 2 books in total');
+    if (user.borrowedBooks.length + bookCodes.length > 2) {
+      throw new ResponseError('Failed', 403, 'User cannot borrow more than 2 books in total');
     }
 
     const borrowedBooks = [];
@@ -30,14 +30,14 @@ export const borrowBook = async (req: Request, res: Response, next: NextFunction
       if (!book) throw new ResponseError('Failed', 404, `Book with code ${bookCode} not found`);
       if (book.stock < 1) throw new ResponseError('Failed', 400, `Book with code ${bookCode} is out of stock`);
 
-      member.borrowedBooks.push({ bookCode: book.code, borrowedAt: new Date() });
+      user.borrowedBooks.push({ bookCode: book.code, borrowedAt: new Date() });
       book.stock -= 1;
       borrowedBooks.push(bookCode);
 
       await book.save();
     }
 
-    await member.save();
+    await user.save();
 
     res.status(200).json({
       status: 'success',
@@ -53,11 +53,11 @@ export const returnBook = async (req: Request, res: Response, next: NextFunction
   try {
     const validateData = await validation.validate(schemaValidation, req.body);
 
-    const { memberCode, bookCodes } = validateData;
+    const { userCode, bookCodes } = validateData;
 
-    const member = await MemberModel.findOne({ code: memberCode });
+    const user = await UserModel.findOne({ code: userCode });
 
-    if (!member) throw new ResponseError('Failed', 404, 'Member not found');
+    if (!user) throw new ResponseError('Failed', 404, 'User not found');
 
     const booksToReturn = [];
     const returnedBooks = [];
@@ -68,9 +68,9 @@ export const returnBook = async (req: Request, res: Response, next: NextFunction
         throw new ResponseError('Failed', 404, `Book with code ${bookCode} not found`);
       }
 
-      const borrowedBook = member.borrowedBooks.find((borrow) => borrow.bookCode === bookCode);
+      const borrowedBook = user.borrowedBooks.find((borrow) => borrow.bookCode === bookCode);
       if (!borrowedBook) {
-        throw new ResponseError('Failed', 400, `Book with code ${bookCode} was not borrowed by this member`);
+        throw new ResponseError('Failed', 400, `Book with code ${bookCode} was not borrowed by this user`);
       }
 
       booksToReturn.push({ book, borrowedBook });
@@ -84,17 +84,17 @@ export const returnBook = async (req: Request, res: Response, next: NextFunction
 
       if (diffDays > 7) {
         const triDays = 3 * 24 * 60 * 60 * 1000;
-        member.penaltyUntil = new Date(currentDate.getTime() + triDays);
+        user.penaltyUntil = new Date(currentDate.getTime() + triDays);
       }
 
-      member.borrowedBooks = member.borrowedBooks.filter((borrow) => borrow.bookCode !== book.code);
+      user.borrowedBooks = user.borrowedBooks.filter((borrow) => borrow.bookCode !== book.code);
       book.stock += 1;
 
       await book.save();
       returnedBooks.push(book.code);
     }
 
-    await member.save();
+    await user.save();
 
     res.status(200).json({
       status: 'success',
@@ -108,15 +108,15 @@ export const returnBook = async (req: Request, res: Response, next: NextFunction
 
 export const checkMembers = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const members = await MemberModel.find().populate('borrowedBooks');
+    const users = await UserModel.find().populate('borrowedBooks');
 
-    if (members.length === 0) throw new ResponseError('Failed', 404, 'Members not found');
+    if (users.length === 0) throw new ResponseError('Failed', 404, 'Users not found');
 
     res.status(200).json({
       status: 'success',
       statusCode: 200,
-      message: 'Members checked successfully',
-      data: members,
+      message: 'Users checked successfully',
+      data: users,
     });
   } catch (error) {
     next(error);

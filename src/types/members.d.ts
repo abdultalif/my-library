@@ -5,12 +5,12 @@ export interface IBorrowedBook {
   borrowedAt: Date;
 }
 
-export interface IMember extends Document {
+export interface IUser extends Document {
   code: string;
   name: string;
   email: string;
   password: string;
-  isAdmin: boolean;
+  role: string;
   isActive: boolean;
   tokenResetPassword: string | null;
   borrowedBooks: IBorrowedBook[];
