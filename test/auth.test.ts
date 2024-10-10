@@ -1,17 +1,19 @@
 import { ResponseError } from '../src/error/response-error';
 import { MemberModel } from '../src/model/member-model';
 import { generateCode } from '../src/utils/code-generator';
-import { sendMail } from '../src/utils/send-mail';
+import { sendMail, sendMailForgotPassword } from '../src/utils/send-mail';
 import createServer from '../src/utils/server';
 import { validation } from '../src/validation/validate';
 import request from 'supertest';
 import bcrypt from 'bcrypt';
 import jsonwebtoken from 'jsonwebtoken';
+import { v4 } from 'uuid';
 
 const app = createServer();
 
 jest.mock('bcrypt');
 jest.mock('jsonwebtoken');
+jest.mock('uuid');
 jest.mock('../src/utils/send-mail');
 jest.mock('../src/model/member-model');
 jest.mock('../src/utils/code-generator');
@@ -22,11 +24,14 @@ const mockValidate = validation.validate as jest.Mock;
 const mockUpdateOne = MemberModel.updateOne as jest.Mock;
 const mockCreateMember = MemberModel.create as jest.Mock;
 const mockCodeGenerator = generateCode as jest.Mock;
+const mockUUID = v4 as jest.Mock;
 const mockSendMail = sendMail as jest.Mock;
+const mockSendMailForForgotPassword = sendMailForgotPassword as jest.Mock;
 const mockJWTVerify = jsonwebtoken.verify as jest.Mock;
 const mockJWTSign = jsonwebtoken.sign as jest.Mock;
 const mockBcryptHash = bcrypt.hash as jest.Mock;
 const mockBcryptCompare = bcrypt.compare as jest.Mock;
+const mockFindOneAndUpdate = MemberModel.findOneAndUpdate as jest.Mock;
 
 describe('POST /api/v1/auth - Register', () => {
   beforeEach(() => {
@@ -345,5 +350,240 @@ describe('POST /api/v1/auth/refresh-token', () => {
     expect(response.status).toBe(500);
     expect(response.body.status).toBe('Failed');
     expect(response.body.errors).toBe('Internal Server Error');
+  });
+});
+
+describe('POST /api/v1/auth/forgot-password', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
+  it('should return 200 status code when Forgot Password successfuly, please check your email', async () => {
+    const mockMember = {
+      _id: 'mockedId',
+      code: 'mockCode',
+      name: 'Abdul Talif',
+      email: 'abdultalif@gmail.com',
+    };
+    const requestData = { email: 'abdultalif@gmail.com' };
+    mockValidate.mockResolvedValue(requestData);
+    mockUUID.mockReturnValue('unique-token-UUID');
+    mockFindOne.mockResolvedValue(mockMember);
+    mockFindOneAndUpdate.mockResolvedValue({
+      ...mockMember,
+      tokenResetPassword: 'unique-token-UUID',
+    });
+    mockSendMailForForgotPassword.mockResolvedValue(true);
+
+    const response = await request(app).post('/api/v1/auth/forgot-password').send(requestData);
+
+    expect(response.status).toBe(200);
+    expect(response.body.status).toBe('Success');
+    expect(response.body.message).toBe('Forgot Password successfuly, please check your email');
+    expect(response.body.data).toEqual({
+      _id: mockMember._id,
+      code: mockMember.code,
+      name: mockMember.name,
+      email: requestData.email,
+      tokenResetPassword: 'unique-token-UUID',
+    });
+    expect(validation.validate).toHaveBeenCalledWith(expect.anything(), requestData);
+    expect(MemberModel.findOne).toHaveBeenCalledWith({ email: requestData.email });
+    expect(MemberModel.findOneAndUpdate).toHaveBeenCalledWith(
+      { email: requestData.email },
+      { $set: { tokenResetPassword: 'unique-token-UUID' } },
+      { new: true },
+    );
+    expect(sendMailForgotPassword).toHaveBeenCalledWith(mockMember.name, mockMember.email, 'unique-token-UUID');
+  });
+
+  it('should return 404 status code when member not found', async () => {
+    const requestData = { email: 'abdultalif@gmail.com' };
+
+    mockValidate.mockResolvedValue(requestData);
+    mockFindOne.mockResolvedValue(null);
+
+    const response = await request(app).post('/api/v1/auth/forgot-password').send(requestData);
+
+    expect(response.status).toBe(404);
+    expect(response.body.status).toBe('Failed');
+    expect(response.body.errors).toBe('Email not found');
+    expect(mockValidate).toHaveBeenCalledWith(expect.anything(), requestData);
+  });
+
+  it('should return 500 status code when failed to update member with token', async () => {
+    const requestData = { email: 'abdultalif@gmail.com' };
+
+    mockValidate.mockResolvedValue(requestData);
+    mockFindOne.mockResolvedValue('abdultalif@gmail.com');
+    mockFindOneAndUpdate.mockResolvedValue(null);
+
+    const response = await request(app).post('/api/v1/auth/forgot-password').send(requestData);
+
+    expect(response.status).toBe(500);
+    expect(response.body.status).toBe('Failed');
+    expect(response.body.errors).toBe('Failed to update member with token');
+    expect(mockValidate).toHaveBeenCalledWith(expect.anything(), requestData);
+    expect(mockFindOne).toHaveBeenCalledWith({ email: 'abdultalif@gmail.com' });
+  });
+
+  it('should return 500 status code when failed to send email', async () => {
+    const mockMember = {
+      _id: 'mockedId',
+      code: 'mockCode',
+      name: 'Abdul Talif',
+      email: 'abdultalif@gmail.com',
+      tokenResetPassword: 'mockToken',
+    };
+    const requestData = { email: 'abdultalif@gmail.com' };
+
+    mockValidate.mockResolvedValue(requestData);
+    mockUUID.mockReturnValue('token-UUID-unique');
+    mockFindOne.mockResolvedValue(mockMember);
+    mockFindOneAndUpdate.mockResolvedValue({ ...mockMember, tokenResetPassword: 'token-UUID-unique' });
+    mockSendMailForForgotPassword.mockResolvedValue(false);
+
+    const response = await request(app).post('/api/v1/auth/forgot-password').send(requestData);
+
+    expect(response.status).toBe(500);
+    expect(response.body.status).toBe('Failed');
+    expect(response.body.errors).toBe('Failed to send email');
+    expect(mockValidate).toHaveBeenCalledWith(expect.anything(), requestData);
+    expect(mockFindOne).toHaveBeenCalledWith({ email: 'abdultalif@gmail.com' });
+    expect(sendMailForgotPassword).toHaveBeenCalledWith(mockMember.name, mockMember.email, 'token-UUID-unique');
+  });
+});
+
+describe('GET /api/v1/auth/set-active-token/{token}', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
+  it('should return 200 status code when Set Active Token successfuly', async () => {
+    const mockToken = 'unique-token';
+    const mockMember = {
+      tokenResetPassword: mockToken,
+      updatedAt: new Date(),
+    };
+
+    mockFindOne.mockResolvedValue(mockMember);
+
+    const response = await request(app).get(`/api/v1/auth/set-active-token/${mockToken}`);
+
+    expect(response.status).toBe(200);
+    expect(response.body.status).toBe('Success');
+    expect(response.body.message).toBe('set active token successfuly');
+    expect(mockFindOne).toHaveBeenCalledWith({ tokenResetPassword: mockToken });
+  });
+
+  it('should return 401 status code when expired token ', async () => {
+    const mockToken = 'expired-token';
+    const mockMember = {
+      tokenResetPassword: mockToken,
+      updatedAt: new Date(new Date().getTime() - 39 * 60000),
+    };
+
+    mockFindOne.mockResolvedValue(mockMember);
+
+    const response = await request(app).get(`/api/v1/auth/set-active-token/${mockToken}`);
+
+    expect(response.status).toBe(401);
+    expect(response.body.status).toBe('Failed');
+    expect(response.body.errors).toBe('Expired Token');
+    expect(mockFindOne).toHaveBeenCalledWith({ tokenResetPassword: mockToken });
+  });
+
+  it('should return 404 status code when Invalid ok', async () => {
+    const mockToken = 'unique-token';
+
+    mockFindOne.mockResolvedValue(null);
+
+    const response = await request(app).get(`/api/v1/auth/set-active-token/${mockToken}`);
+
+    expect(response.status).toBe(404);
+    expect(response.body.status).toBe('Failed');
+    expect(response.body.errors).toBe('Invalid token');
+    expect(mockFindOne).toHaveBeenCalledWith({ tokenResetPassword: mockToken });
+  });
+});
+
+describe('PATCH /api/v1/auth/reset-password/{token}', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
+  it('should return 200 status code when Reset Password successfuly', async () => {
+    const mockToken = 'unique-token';
+    const mockRequestData = {
+      newPassword: 'Talif123!',
+      confirmNewPassword: 'Talif123!',
+    };
+
+    mockFindOne.mockResolvedValue({ tokenResetPassword: mockToken, email: 'abdultalif@gmail.com' });
+    mockValidate.mockResolvedValue(mockRequestData);
+    mockBcryptHash.mockResolvedValue(mockRequestData.newPassword);
+    mockUpdateOne.mockResolvedValue({ password: 'Talif123!' });
+
+    const response = await request(app)
+      .patch(`/api/v1/auth/reset-password/${mockToken}`)
+      .send(mockRequestData)
+      .expect(200);
+
+    expect(response.status).toBe(200);
+    expect(response.body.status).toBe('Success');
+    expect(response.body.message).toBe('Reset Password successfuly');
+    expect(mockFindOne).toHaveBeenCalledWith({ tokenResetPassword: 'unique-token' });
+    expect(mockValidate).toHaveBeenCalledWith(expect.anything(), mockRequestData);
+    expect(mockBcryptHash).toHaveBeenCalledWith(mockRequestData.newPassword, 10);
+    expect(mockUpdateOne).toHaveBeenCalledWith(
+      { email: 'abdultalif@gmail.com' },
+      { $set: { password: 'Talif123!', tokenResetPassword: null } },
+    );
+  });
+
+  it('should return 404 status code when token invalid', async () => {
+    const mockToken = 'invalid-token';
+    const mockRequestData = {
+      newPassword: 'Talif123!',
+      confirmNewPassword: 'Talif123!',
+    };
+
+    mockFindOne.mockResolvedValue(null);
+
+    const response = await request(app)
+      .patch(`/api/v1/auth/reset-password/${mockToken}`)
+      .send(mockRequestData)
+      .expect(404);
+
+    expect(response.status).toBe(404);
+    expect(response.body.status).toBe('Failed');
+    expect(response.body.errors).toBe('Invalid Token');
+    expect(mockFindOne).toHaveBeenCalledWith({ tokenResetPassword: mockToken });
+  });
+
+  it('should return 500 status code when failed to update member', async () => {
+    const mockToken = 'unique-token';
+    const mockRequestData = {
+      newPassword: 'Talif123!',
+      confirmNewPassword: 'Talif123!',
+    };
+
+    mockFindOne.mockResolvedValue({ tokenResetPassword: mockToken, email: 'abdultalif@gmail.com' });
+    mockValidate.mockResolvedValue(mockRequestData);
+    mockBcryptHash.mockResolvedValue(mockRequestData.newPassword);
+    mockUpdateOne.mockRejectedValue(new ResponseError('Failed', 500, 'Failed to reset password'));
+
+    const response = await request(app).patch(`/api/v1/auth/reset-password/${mockToken}`).send(mockRequestData);
+
+    expect(response.status).toBe(500);
+    expect(response.body.status).toBe('Failed');
+    expect(response.body.errors).toBe('Failed to reset password');
+    expect(mockFindOne).toHaveBeenCalledWith({ tokenResetPassword: 'unique-token' });
+    expect(mockValidate).toHaveBeenCalledWith(expect.anything(), mockRequestData);
+    expect(mockBcryptHash).toHaveBeenCalledWith(mockRequestData.newPassword, 10);
+    expect(mockUpdateOne).toHaveBeenCalledWith(
+      { email: 'abdultalif@gmail.com' },
+      { $set: { password: 'Talif123!', tokenResetPassword: null } },
+    );
   });
 });

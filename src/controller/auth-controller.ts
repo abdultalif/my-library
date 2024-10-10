@@ -1,9 +1,11 @@
 import { NextFunction, Request, Response } from 'express';
 import logger from '../utils/logging';
 import {
+  forgotPasswordSchemaValidation,
   loginSchemaValidation,
   refreshTokenSchemaValidation,
   registerSchemaValidation,
+  resetPasswordSchemaValidation,
 } from '../validation/auth-validation';
 import { validation } from '../validation/validate';
 import { ResponseError } from '../error/response-error';
@@ -12,7 +14,8 @@ import { compare, hash } from 'bcrypt';
 import jsonwebtoken from 'jsonwebtoken';
 import config from '../config/environment';
 import { generateCode } from '../utils/code-generator';
-import { sendMail } from '../utils/send-mail';
+import { sendMail, sendMailForgotPassword } from '../utils/send-mail';
+import { v4 as uuidv4 } from 'uuid';
 
 export const register = async (req: Request, res: Response, next: NextFunction) => {
   try {
@@ -179,6 +182,113 @@ export const refreshToken = async (req: Request, res: Response, next: NextFuncti
   } catch (error: unknown) {
     if (error instanceof ResponseError) {
       logger.error(`${error.statusCode}: ${error.message}`);
+    }
+    if (error instanceof Error) {
+      logger.error(error.stack);
+    }
+    next(error);
+  }
+};
+
+export const forgotPassword = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const validateData = await validation.validate(forgotPasswordSchemaValidation, req.body);
+
+    const memberExist = await MemberModel.findOne({ email: validateData.email });
+    if (!memberExist) throw new ResponseError('Failed', 404, 'Email not found');
+
+    const tokenForgotPassword = uuidv4();
+
+    const result = await MemberModel.findOneAndUpdate(
+      { email: validateData.email },
+      { $set: { tokenResetPassword: tokenForgotPassword } },
+      { new: true },
+    );
+
+    if (!result || !result.tokenResetPassword) {
+      throw new ResponseError('Failed', 500, 'Failed to update member with token');
+    }
+
+    const sendMailForgot = await sendMailForgotPassword(result.name, result.email, result.tokenResetPassword);
+
+    if (!sendMailForgot) {
+      throw new ResponseError('Failed', 500, 'Failed to send email');
+    }
+
+    logger.info('Forgot Password successfuly, please check your email');
+    res.status(200).json({
+      status: 'Success',
+      statusCode: 200,
+      message: 'Forgot Password successfuly, please check your email',
+      data: {
+        _id: result._id,
+        code: result.code,
+        name: result.name,
+        email: validateData.email,
+        tokenResetPassword: tokenForgotPassword,
+      },
+    });
+  } catch (error) {
+    if (error instanceof ResponseError) {
+      logger.error(`${error.message}: ${error.message}`);
+    }
+    if (error instanceof Error) {
+      logger.error(error.stack);
+    }
+    next(error);
+  }
+};
+
+export const setActiveToken = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const memberExist = await MemberModel.findOne({ tokenResetPassword: req.params.token });
+    if (!memberExist) throw new ResponseError('Failed', 404, 'Invalid token');
+
+    const currentTimestamp = new Date();
+    const tokenTimestamp = memberExist.updatedAt ? new Date(memberExist.updatedAt) : new Date();
+    const timeDifference = (currentTimestamp.getTime() - tokenTimestamp.getTime()) / 60000;
+    if (timeDifference > 30) throw new ResponseError('Failed', 401, 'Expired Token');
+
+    logger.info('Set active token successfuly');
+    res.status(200).json({
+      status: 'Success',
+      statusCode: 200,
+      message: 'set active token successfuly',
+    });
+  } catch (error) {
+    if (error instanceof ResponseError) {
+      logger.error(`${error.message}: ${error.message}`);
+    }
+    if (error instanceof Error) {
+      logger.error(error.stack);
+    }
+    next(error);
+  }
+};
+
+export const resetPassword = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const { token } = req.params;
+    const memberExist = await MemberModel.findOne({ tokenResetPassword: token });
+    if (!memberExist) throw new ResponseError('Failed', 404, 'Invalid Token');
+
+    const validateData = await validation.validate(resetPasswordSchemaValidation, req.body);
+
+    const newPassword = await hash(validateData.newPassword, 10);
+    await MemberModel.updateOne(
+      { email: memberExist.email },
+      { $set: { password: newPassword, tokenResetPassword: null } },
+    );
+
+    logger.info('Reset Password successfuly');
+    res.status(200).json({
+      status: 'Success',
+      statusCode: 200,
+      message: 'Reset Password successfuly',
+    });
+  } catch (error) {
+    if (error instanceof ResponseError) {
+      logger.error(`${error.message}: ${error.message}`);
     }
     if (error instanceof Error) {
       logger.error(error.stack);

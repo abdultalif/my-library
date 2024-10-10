@@ -224,6 +224,24 @@
         "tags": ["Auth"],
         "summary": "REST API untuk aktifasi akun member",
         "description": "API ini digunakan ketika ingin aktifasi akun member",
+        "parameters": [
+          {
+            "name": "email",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "memberId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "Success",
@@ -558,6 +576,422 @@
                     "errors": {
                       "type": "string",
                       "example": "Invalid refresh token"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Failed"
+                    },
+                    "statusCode": {
+                      "type": "number",
+                      "example": 500
+                    },
+                    "errors": {
+                      "type": "string",
+                      "example": "Internal Server Error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/api/v1/auth/forgot-password": {
+      "post": {
+        "tags": ["Auth"],
+        "summary": "REST API untuk lupa password",
+        "description": "API ini digunakan ketika member lupa password",
+        "requestBody": {
+          "description": "request body ini digunakan ketika member lupa password",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "description": "email",
+                    "example": "abdultalif75@gmail.com"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Success"
+                    },
+                    "statusCode": {
+                      "type": "number",
+                      "example": 200
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Forgot Password successfuly, please check your email"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "_id": {
+                          "type": "string",
+                          "example": "66fbb7774bc9d0e051f5dad6"
+                        },
+                        "code": {
+                          "type": "string",
+                          "example": "M001"
+                        },
+                        "email": {
+                          "type": "string",
+                          "example": "abdultalif75@gmail.com"
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "Abdul Talif"
+                        },
+                        "token": {
+                          "type": "string",
+                          "example": "unique-token"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Failed"
+                    },
+                    "statusCode": {
+                      "type": "number",
+                      "example": 400
+                    },
+                    "errors": {
+                      "type": "object",
+                      "properties": {
+                        "email": {
+                          "type": "string",
+                          "example": ["Email is required."]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Failed"
+                    },
+                    "statusCode": {
+                      "type": "number",
+                      "example": 404
+                    },
+                    "errors": {
+                      "type": "string",
+                      "example": "Email not found"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Failed"
+                    },
+                    "statusCode": {
+                      "type": "number",
+                      "example": 500
+                    },
+                    "errors": {
+                      "type": "string",
+                      "example": "Failed to send email"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/api/v1/auth/set-active-token/{token}": {
+      "get": {
+        "tags": ["Auth"],
+        "summary": "REST API untuk check active token lupa password",
+        "description": "API ini digunakan ketika ingin check active token lupa password",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Success"
+                    },
+                    "statusCode": {
+                      "type": "number",
+                      "example": 200
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "set active token successfuly"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Failed"
+                    },
+                    "statusCode": {
+                      "type": "number",
+                      "example": 401
+                    },
+                    "errors": {
+                      "type": "string",
+                      "example": "Expired Token"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Failed"
+                    },
+                    "statusCode": {
+                      "type": "number",
+                      "example": 404
+                    },
+                    "errors": {
+                      "type": "string",
+                      "example": "Invalid Token"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Failed"
+                    },
+                    "statusCode": {
+                      "type": "number",
+                      "example": 500
+                    },
+                    "errors": {
+                      "type": "string",
+                      "example": "Internal Server Error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/api/v1/auth/reset-password/{token}": {
+      "patch": {
+        "tags": ["Auth"],
+        "summary": "REST API untuk reset password",
+        "description": "API ini digunakan ketika ingin reset password",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "request body ini digunakan ketika ingin reset password",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "newPassword": {
+                    "type": "string",
+                    "description": "name",
+                    "example": "Talif123!"
+                  },
+                  "confirmNewPassword": {
+                    "type": "string",
+                    "description": "name",
+                    "example": "Talif123!"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Success"
+                    },
+                    "statusCode": {
+                      "type": "number",
+                      "example": 200
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Reset Password successfuly"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Failed"
+                    },
+                    "statusCode": {
+                      "type": "number",
+                      "example": 400
+                    },
+                    "errors": {
+                      "type": "object",
+                      "properties": {
+                        "newPassword": {
+                          "type": "string",
+                          "example": ["String must contain at least 8 character."]
+                        },
+                        "confirmNewPassword": {
+                          "type": "string",
+                          "example": ["Password and Confirm Password must be the same."]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Failed"
+                    },
+                    "statusCode": {
+                      "type": "number",
+                      "example": 404
+                    },
+                    "errors": {
+                      "type": "string",
+                      "example": "Invalid Token"
                     }
                   }
                 }

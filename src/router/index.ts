@@ -7,6 +7,6 @@ const router = express.Router();
 
 router.use('/api/v1/', Book);
 router.use('/api/v1/', Member);
-router.use('/api/v1/', Auth);
+router.use('/api/v1/auth', Auth);
 
 export default router;

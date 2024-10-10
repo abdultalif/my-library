@@ -15,4 +15,6 @@ export interface IMember extends Document {
   tokenResetPassword: string | null;
   borrowedBooks: IBorrowedBook[];
   penaltyUntil: Date | null;
+  createdAt?: Date;
+  updatedAt?: Date;
 }
