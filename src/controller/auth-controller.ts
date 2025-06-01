@@ -14,8 +14,8 @@ import { compare, hash } from 'bcrypt';
 import jsonwebtoken from 'jsonwebtoken';
 import config from '../config/environment';
 import { generateCode } from '../utils/code-generator';
-import { sendMail, sendMailForgotPassword } from '../utils/send-mail';
 import { v4 as uuidv4 } from 'uuid';
+import { RabbitMQKeys, publishEmailTask } from '../config/rabbitmq';
 
 export const register = async (req: Request, res: Response, next: NextFunction) => {
   try {
@@ -38,11 +38,29 @@ export const register = async (req: Request, res: Response, next: NextFunction) 
     });
 
     const result = await UserModel.create(newMember);
-    const sendEmail = await sendMail(result.name, result.email, result._id as string);
 
-    if (!sendEmail) {
-      throw new ResponseError('Failed', 500, 'Failed to send email');
+    const emailPayload = {
+      name: result.name,
+      email: result.email,
+      token: String(result._id),
+    };
+
+    const emailTaskPublished = await publishEmailTask(RabbitMQKeys.REGISTRATION_ROUTING_KEY, emailPayload);
+
+    if (!emailTaskPublished) {
+      logger.warn(`Failed to publish registration email task for ${result.email}, but user was created.`);
+      throw new ResponseError(
+        'Failed',
+        500,
+        'Failed to queue registration email. Please try registering again later or contact support.',
+      );
     }
+
+    // const sendEmail = await sendMail(result.name, result.email, result._id as string);
+
+    // if (!sendEmail) {
+    //   throw new ResponseError('Failed', 500, 'Failed to send email');
+    // }
 
     logger.info('Register successfuly, Please check your email');
     res.status(201).json({
@@ -209,12 +227,26 @@ export const forgotPassword = async (req: Request, res: Response, next: NextFunc
       throw new ResponseError('Failed', 500, 'Failed to update user with token');
     }
 
-    const sendMailForgot = await sendMailForgotPassword(result.name, result.email, result.tokenResetPassword);
+    const emailPayload = {
+      name: result.name,
+      email: result.email,
+      token: result.tokenResetPassword, // Kirim token reset yang baru dibuat
+    };
+    const emailTaskPublished = await publishEmailTask(RabbitMQKeys.FORGOT_PASSWORD_ROUTING_KEY, emailPayload);
 
-    if (!sendMailForgot) {
-      throw new ResponseError('Failed', 500, 'Failed to send email');
+    if (!emailTaskPublished) {
+      throw new ResponseError(
+        'Failed',
+        500,
+        'Failed to queue password reset email. Please try again later or contact support.',
+      );
     }
 
+    // const sendMailForgot = await sendMailForgotPassword(result.name, result.email, result.tokenResetPassword);
+
+    // if (!sendMailForgot) {
+    //   throw new ResponseError('Failed', 500, 'Failed to send email');
+    // }
     logger.info('Forgot Password successfuly, please check your email');
     res.status(200).json({
       status: 'Success',

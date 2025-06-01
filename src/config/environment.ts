@@ -10,6 +10,7 @@ const CONFIG = {
   mailUser: globalThis.process.env.MAIL_USER,
   mailPassword: globalThis.process.env.MAIL_PASSWORD,
   mailFrom: globalThis.process.env.MAIL_FROM,
+  rabbitMQUrl: globalThis.process.env.RABBITMQ_URL,
 };
 
 export default CONFIG;
