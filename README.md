@@ -27,6 +27,7 @@ Untuk menjalankan projek ini, kamu perlu menambahkkan environment variables beri
 `JWT_EXPIRES_IN`
 `JWT_REFRESH_SECRET`
 `JWT_REFRESH_EXPIRES_IN`
+`RABBITMQ_URL`
 
 # Menjalankan Projek di Lokal
 
